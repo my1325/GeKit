@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GeKit"
-  s.version      = "0.0.0.1"
+  s.version      = "0.0.0.2"
   s.summary      = "GeKit."
   s.description  = <<-DESC 
                           Common Tools

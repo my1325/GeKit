@@ -26,6 +26,7 @@
 		0F3CA0D21F0347DB00E79729 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3CA0D01F0347DB00E79729 /* Main.storyboard */; };
 		0F3CA0D41F0347DB00E79729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3CA0D31F0347DB00E79729 /* Assets.xcassets */; };
 		0F3CA0D71F0347DB00E79729 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3CA0D51F0347DB00E79729 /* LaunchScreen.storyboard */; };
+		C3FDD4328EE0330375E0ADAC /* libPods-GXWToolKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4263C8D00737B176132A7555 /* libPods-GXWToolKitDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,9 @@
 		0F3CA0D31F0347DB00E79729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F3CA0D61F0347DB00E79729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F3CA0D81F0347DB00E79729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4263C8D00737B176132A7555 /* libPods-GXWToolKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GXWToolKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		827405E0153C187B689B85BD /* Pods-GXWToolKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXWToolKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GXWToolKitDemo/Pods-GXWToolKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		92BBD0A3114CE1130B958C23 /* Pods-GXWToolKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXWToolKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GXWToolKitDemo/Pods-GXWToolKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3FDD4328EE0330375E0ADAC /* libPods-GXWToolKitDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +237,8 @@
 			children = (
 				0F3CA0C61F0347DB00E79729 /* GXWToolKitDemo */,
 				0F3CA0C51F0347DB00E79729 /* Products */,
+				222F93282908BA97DA8C1C33 /* Pods */,
+				39CBF96E586400DAA84A6B33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +275,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		222F93282908BA97DA8C1C33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				827405E0153C187B689B85BD /* Pods-GXWToolKitDemo.debug.xcconfig */,
+				92BBD0A3114CE1130B958C23 /* Pods-GXWToolKitDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		39CBF96E586400DAA84A6B33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4263C8D00737B176132A7555 /* libPods-GXWToolKitDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,9 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F3CA0DB1F0347DB00E79729 /* Build configuration list for PBXNativeTarget "GXWToolKitDemo" */;
 			buildPhases = (
+				9F91F953EC74D981B04A111C /* [CP] Check Pods Manifest.lock */,
 				0F3CA0C01F0347DB00E79729 /* Sources */,
 				0F3CA0C11F0347DB00E79729 /* Frameworks */,
 				0F3CA0C21F0347DB00E79729 /* Resources */,
+				1685477222E615E9BEF6F0B4 /* [CP] Embed Pods Frameworks */,
+				00A3CFA78E4377DA9792CAE1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -334,6 +361,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00A3CFA78E4377DA9792CAE1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GXWToolKitDemo/Pods-GXWToolKitDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1685477222E615E9BEF6F0B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GXWToolKitDemo/Pods-GXWToolKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F91F953EC74D981B04A111C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GXWToolKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0F3CA0C01F0347DB00E79729 /* Sources */ = {
@@ -473,6 +551,7 @@
 		};
 		0F3CA0DC1F0347DB00E79729 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 827405E0153C187B689B85BD /* Pods-GXWToolKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K8EC7TWSSW;
@@ -485,6 +564,7 @@
 		};
 		0F3CA0DD1F0347DB00E79729 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92BBD0A3114CE1130B958C23 /* Pods-GXWToolKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K8EC7TWSSW;
