@@ -20,6 +20,18 @@
     return shotImage;
 }
 
+- (UIImage *)g_snapshotAfterScreenUpdates:(BOOL)update {
+    
+    if (![self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        return [self g_takeSnapShot];
+    }
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:update];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
+}
+
 - (void)g_addConstraintForWidth:(CGFloat)Width
 {
     NSLayoutConstraint * constraint = [NSLayoutConstraint constraintWithItem:self
@@ -124,6 +136,16 @@
     [UIView animateWithDuration:duration animations:^{
         
         self.transform = transform;
+    }];
+}
+
+- (void)g_animateWithVisualEffect:(UIVisualEffect *)effect withDuration:(NSTimeInterval)duration {
+    
+    if (![self isKindOfClass:[UIVisualEffectView class]]) return;
+    
+    [UIView animateWithDuration:duration animations:^{
+      
+        [(UIVisualEffectView *)self setEffect:effect];
     }];
 }
 

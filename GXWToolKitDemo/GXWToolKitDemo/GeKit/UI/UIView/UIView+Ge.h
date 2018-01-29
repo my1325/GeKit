@@ -12,6 +12,8 @@
 
 - (UIImage *)g_takeSnapShot;
 
+- (UIImage *)g_snapshotAfterScreenUpdates: (BOOL)update;
+
 - (void)g_addConstraintInSuper:(NSLayoutAttribute)LayoutAttribute Constant:(CGFloat)Constant;
 
 - (void)g_addConstraintForWidth:(CGFloat)Width;
@@ -24,7 +26,6 @@
 
 - (void)g_updateConstraintForHeight:(CGFloat)Height;
 
-
 - (void)g_animateWithFrame: (CGRect)targetFrame withDuration: (NSTimeInterval)duration;
 
 - (void)g_animateWithBounds: (CGRect)targetBounds withDuration: (NSTimeInterval)duration;
@@ -32,6 +33,8 @@
 - (void)g_animateWithTransform: (CGAffineTransform)transform withDuration: (NSTimeInterval)duration;
 
 - (void)g_animateWithAlpha: (CGFloat)alpha withDuration: (NSTimeInterval)duration;
+
+- (void)g_animateWithVisualEffect: (UIVisualEffect *)effect withDuration: (NSTimeInterval)druration;
 
 - (CGFloat) g_left;
 

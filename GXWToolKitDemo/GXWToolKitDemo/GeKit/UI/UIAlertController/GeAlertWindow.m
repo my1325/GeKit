@@ -24,7 +24,8 @@
 
 - (instancetype)init {
     
-    if (self != [super init]) return nil ;
+    self = [super init];
+    if (!self) return nil ;
     
     self.windowLevel = UIWindowLevelAlert;
     self.rootViewController = [[UIViewController alloc] init];
