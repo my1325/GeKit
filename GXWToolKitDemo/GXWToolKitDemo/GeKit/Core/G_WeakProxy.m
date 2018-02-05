@@ -6,7 +6,7 @@
 //  Copyright © 2018年 My. All rights reserved.
 //
 
-#import "WeakProxy.h"
+#import "G_WeakProxy.h"
 
 @implementation GeWeakProxy {
     

@@ -61,4 +61,62 @@
     
     return newImage;
 }
+
++ (UIImage *)qrCodeImageWithTitle:(NSString *)title
+                             size:(CGSize)size
+                      qrCodeColor:(UIColor *)qrCodeColor
+                  backgroundColor:(UIColor *)backgroundColor
+                      centerImage:(UIImage *)centerImage
+{    
+    NSData * stringData = [title dataUsingEncoding:NSUTF8StringEncoding];
+    
+    CIFilter * qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [qrFilter setValue:stringData forKey:@"inputMessage"];
+    [qrFilter setValue:@"H" forKey:@"inputCorrectionLevel"];
+    
+    CIFilter * colorFilter = [CIFilter filterWithName:@"CIFalseColor" withInputParameters:@{@"inputImage": qrFilter.outputImage, @"inputColor0": [CIColor colorWithCGColor:qrCodeColor.CGColor], @"inputColor1": backgroundColor.CIColor}];
+    
+    CIImage * qrImage = colorFilter.outputImage;
+    
+    CGImageRef cgImage = [[CIContext new] createCGImage:qrImage fromRect:qrImage.extent];
+    
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(context, kCGInterpolationNone);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    
+    //    // 3. 绘制小图片
+    if (centerImage) {
+        CGSize logoSize = centerImage.size;
+        CGPoint origin = (CGPoint){(size.width - logoSize.width) * 0.5, (size.height - logoSize.height) * 0.5};
+        CGContextDrawImage(context, (CGRect){origin.x, origin.y, logoSize.width, logoSize.height}, centerImage.CGImage);
+    }
+    
+    UIImage * codeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return codeImage;
+}
+
+- (NSArray<NSString *> *)g_qrCodes {
+    
+    CIDetector * detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
+    
+    CIImage * qrCodeCIImage = [CIImage imageWithCGImage:self.CGImage];
+    
+    NSArray<CIFeature *> * qrCodeFeatures = [detector featuresInImage:qrCodeCIImage options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
+    
+    NSMutableArray * results = @[].mutableCopy;
+    for (CIFeature * feature in qrCodeFeatures) {
+        
+        if ([feature isKindOfClass:[CIQRCodeFeature class]]) {
+            
+            CIQRCodeFeature * qrCodeFeature = (CIQRCodeFeature *)feature;
+            if (!qrCodeFeature.messageString) continue;
+            [results addObject:qrCodeFeature.messageString];
+        }
+    }
+    return results.copy;
+}
 @end

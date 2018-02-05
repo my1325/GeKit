@@ -10,6 +10,18 @@
 
 @interface UIView (Ge)
 
+@property(nonatomic, assign, readonly) CGFloat g_left;
+
+@property(nonatomic, assign, readonly) CGFloat g_right;
+
+@property(nonatomic, assign, readonly) CGFloat g_top;
+
+@property(nonatomic, assign, readonly) CGFloat g_bottom;
+
+@property(nonatomic, assign, readonly) CGFloat g_width;
+
+@property(nonatomic, assign, readonly) CGFloat g_height;
+
 - (UIImage *)g_takeSnapShot;
 
 - (UIImage *)g_snapshotAfterScreenUpdates: (BOOL)update;
@@ -35,16 +47,4 @@
 - (void)g_animateWithAlpha: (CGFloat)alpha withDuration: (NSTimeInterval)duration;
 
 - (void)g_animateWithVisualEffect: (UIVisualEffect *)effect withDuration: (NSTimeInterval)druration;
-
-- (CGFloat) g_left;
-
-- (CGFloat) g_right;
-
-- (CGFloat) g_top;
-
-- (CGFloat) g_bottom;
-
-- (CGFloat) g_width;
-
-- (CGFloat) g_height;
 @end

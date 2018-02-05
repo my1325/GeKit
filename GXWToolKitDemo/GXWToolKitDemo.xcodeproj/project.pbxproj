@@ -14,7 +14,7 @@
 		0F34B326200C6834005FD49F /* UIResponder+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B325200C6834005FD49F /* UIResponder+Ge.m */; };
 		0F34B32C200C717A005FD49F /* UITableView+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B32B200C7179005FD49F /* UITableView+Ge.m */; };
 		0F34B330200C723A005FD49F /* UIButton+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B32F200C723A005FD49F /* UIButton+Ge.m */; };
-		0F34B333200C75BB005FD49F /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B332200C75BB005FD49F /* WeakProxy.m */; };
+		0F34B333200C75BB005FD49F /* G_WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B332200C75BB005FD49F /* G_WeakProxy.m */; };
 		0F34B337200C7C4F005FD49F /* UIView+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B336200C7C4F005FD49F /* UIView+Ge.m */; };
 		0F34B33B200C80CA005FD49F /* NSString+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B33A200C80CA005FD49F /* NSString+Ge.m */; };
 		0F34B33F200C884C005FD49F /* UIImage+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B33E200C884C005FD49F /* UIImage+Ge.m */; };
@@ -31,13 +31,12 @@
 		0F447002201EE0FD00388252 /* G_LoadingAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F446FFF201EE0FD00388252 /* G_LoadingAnimateView.m */; };
 		0F447003201EE0FD00388252 /* G_AnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F447000201EE0FD00388252 /* G_AnimateView.m */; };
 		0F447007201EE66200388252 /* G_GroupImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F447005201EE66100388252 /* G_GroupImageView.m */; };
-		0F447010201EEFBA00388252 /* SwiftEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F44700F201EEFBA00388252 /* SwiftEnum.m */; };
+		0F86833420285F3900B44AEA /* G_QRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86833220285F3800B44AEA /* G_QRCodeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F34B318200C5828005FD49F /* GeAlertWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeAlertWindow.h; sourceTree = "<group>"; };
 		0F34B319200C5828005FD49F /* GeAlertWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeAlertWindow.m; sourceTree = "<group>"; };
-		0F34B31C200C5885005FD49F /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		0F34B31D200C5CE0005FD49F /* UIAlertController+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Ge.h"; sourceTree = "<group>"; };
 		0F34B31E200C5CE0005FD49F /* UIAlertController+Ge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Ge.m"; sourceTree = "<group>"; };
 		0F34B321200C6789005FD49F /* NSObject+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Ge.h"; sourceTree = "<group>"; };
@@ -48,8 +47,8 @@
 		0F34B32B200C7179005FD49F /* UITableView+Ge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Ge.m"; sourceTree = "<group>"; };
 		0F34B32E200C723A005FD49F /* UIButton+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ge.h"; sourceTree = "<group>"; };
 		0F34B32F200C723A005FD49F /* UIButton+Ge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ge.m"; sourceTree = "<group>"; };
-		0F34B331200C75BB005FD49F /* WeakProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
-		0F34B332200C75BB005FD49F /* WeakProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
+		0F34B331200C75BB005FD49F /* G_WeakProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_WeakProxy.h; sourceTree = "<group>"; };
+		0F34B332200C75BB005FD49F /* G_WeakProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_WeakProxy.m; sourceTree = "<group>"; };
 		0F34B335200C7C4F005FD49F /* UIView+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Ge.h"; sourceTree = "<group>"; };
 		0F34B336200C7C4F005FD49F /* UIView+Ge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ge.m"; sourceTree = "<group>"; };
 		0F34B339200C80CA005FD49F /* NSString+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Ge.h"; sourceTree = "<group>"; };
@@ -81,8 +80,8 @@
 		0F447000201EE0FD00388252 /* G_AnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_AnimateView.m; sourceTree = "<group>"; };
 		0F447005201EE66100388252 /* G_GroupImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_GroupImageView.m; sourceTree = "<group>"; };
 		0F447006201EE66200388252 /* G_GroupImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G_GroupImageView.h; sourceTree = "<group>"; };
-		0F44700E201EEFBA00388252 /* SwiftEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftEnum.h; sourceTree = "<group>"; };
-		0F44700F201EEFBA00388252 /* SwiftEnum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftEnum.m; sourceTree = "<group>"; };
+		0F86833220285F3800B44AEA /* G_QRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_QRCodeView.m; sourceTree = "<group>"; };
+		0F86833320285F3800B44AEA /* G_QRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G_QRCodeView.h; sourceTree = "<group>"; };
 		2B081961C5F5ABF1EDC9E2F9 /* libPods-GXWToolKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GXWToolKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6320AFCB80AE7AF7B5132A7 /* Pods-GXWToolKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXWToolKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GXWToolKitDemo/Pods-GXWToolKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CD3E960C2DC9E6D99198B09A /* Pods-GXWToolKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXWToolKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GXWToolKitDemo/Pods-GXWToolKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,11 +126,8 @@
 		0F34B31B200C586B005FD49F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0F34B31C200C5885005FD49F /* Defines.h */,
-				0F34B331200C75BB005FD49F /* WeakProxy.h */,
-				0F34B332200C75BB005FD49F /* WeakProxy.m */,
-				0F44700E201EEFBA00388252 /* SwiftEnum.h */,
-				0F44700F201EEFBA00388252 /* SwiftEnum.m */,
+				0F34B331200C75BB005FD49F /* G_WeakProxy.h */,
+				0F34B332200C75BB005FD49F /* G_WeakProxy.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -319,6 +315,7 @@
 		0F447008201EE9ED00388252 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0F86833120285F3800B44AEA /* QRCodeView */,
 				0F447004201EE62600388252 /* GroupImageView */,
 				0F446FFA201EE0CE00388252 /* AnimateView */,
 			);
@@ -330,6 +327,15 @@
 			children = (
 			);
 			path = Custome;
+			sourceTree = "<group>";
+		};
+		0F86833120285F3800B44AEA /* QRCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				0F86833320285F3800B44AEA /* G_QRCodeView.h */,
+				0F86833220285F3800B44AEA /* G_QRCodeView.m */,
+			);
+			path = QRCodeView;
 			sourceTree = "<group>";
 		};
 		206CA7C95ACCE40E47B51EBB /* Frameworks */ = {
@@ -475,7 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F34B333200C75BB005FD49F /* WeakProxy.m in Sources */,
+				0F34B333200C75BB005FD49F /* G_WeakProxy.m in Sources */,
 				0F3CA0CF1F0347DB00E79729 /* ViewController.m in Sources */,
 				0F3CA0CC1F0347DB00E79729 /* AppDelegate.m in Sources */,
 				0F34B31F200C5CE0005FD49F /* UIAlertController+Ge.m in Sources */,
@@ -491,10 +497,10 @@
 				0F34B34A200C977A005FD49F /* UIViewController+Ge.m in Sources */,
 				0F34B323200C6789005FD49F /* NSObject+Ge.m in Sources */,
 				0F34B33F200C884C005FD49F /* UIImage+Ge.m in Sources */,
+				0F86833420285F3900B44AEA /* G_QRCodeView.m in Sources */,
 				0F447002201EE0FD00388252 /* G_LoadingAnimateView.m in Sources */,
 				0F447001201EE0FD00388252 /* G_ProgressAnimateView.m in Sources */,
 				0F447003201EE0FD00388252 /* G_AnimateView.m in Sources */,
-				0F447010201EEFBA00388252 /* SwiftEnum.m in Sources */,
 				0F34B330200C723A005FD49F /* UIButton+Ge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

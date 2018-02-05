@@ -7,23 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Defines.h"
 
 @interface GeAnimateView : UIView
 
-G_ReadonlyProperty(strong) CAShapeLayer * animateLayer;
+@property(nonatomic, readonly, strong) CAShapeLayer * animateLayer;
 
-G_ReadonlyProperty(assign) BOOL isAnimating;
+@property(nonatomic, readonly, assign) BOOL isAnimating;
 
-G_AssignProperty BOOL removeFromSuperViewWhenStopped;
+@property(nonatomic, assign) BOOL removeFromSuperViewWhenStopped;
 
-G_AssignProperty CGSize animateSize;
+@property(nonatomic, assign) CGSize animateSize;
 
-G_AssignProperty CGFloat indicatoryWidth;
+@property(nonatomic, assign) CGFloat indicatoryWidth;
 
-G_StrongProperty UIColor * animateBackgroundColor;
+@property(nonatomic, strong) UIColor * animateBackgroundColor;
 
-G_StrongProperty UIColor * indicatorColor;
+@property(nonatomic, strong) UIColor * indicatorColor;
 
 - (void) startInView: (UIView *)superView;
 

@@ -12,5 +12,5 @@
 /**
     进度(0 ~ 1)
  */
-G_AssignProperty CGFloat progress;
+@property(nonatomic, assign) CGFloat progress;
 @end

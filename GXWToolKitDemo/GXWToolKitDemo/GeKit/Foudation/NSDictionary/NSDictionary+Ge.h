@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Defines.h"
 
 @interface NSDictionary (Ge)
 
-G_ReadonlyProperty(strong) NSString * g_jsonString;
+@property(nonatomic, readonly) NSString * g_jsonString;
 
-G_ReadonlyProperty(strong) NSData * g_jsonData;
+@property(nonatomic, readonly) NSData * g_jsonData;
 
 @end

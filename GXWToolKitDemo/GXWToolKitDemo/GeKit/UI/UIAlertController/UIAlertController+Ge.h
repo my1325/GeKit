@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Defines.h"
 
 typedef void(^G_AlertAction)(NSInteger);
+typedef void(^G_EmptyAction)(void);
 
 @interface UIAlertController (Ge)
 

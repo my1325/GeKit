@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Defines.h"
 
 @interface GeAlertWindow : UIWindow
 
-G_ClassReadonlyProperty GeAlertWindow * sharedWindow;
-
+@property(nonatomic, readonly, class) GeAlertWindow * sharedWindow;
 @end

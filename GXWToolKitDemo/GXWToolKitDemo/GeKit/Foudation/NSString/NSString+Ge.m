@@ -7,6 +7,7 @@
 //
 
 #import "NSString+Ge.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation NSString (Ge)
 
@@ -39,6 +40,70 @@
     
     NSData * data = [self dataUsingEncoding:NSUTF8StringEncoding];
     return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+}
+
++ (NSString *)codeUpce {
+    return AVMetadataObjectTypeUPCECode;
+}
+
++ (NSString *)code39 {
+    return AVMetadataObjectTypeCode39Code;
+}
+
++ (NSString *)code93 {
+    return AVMetadataObjectTypeCode93Code;
+}
+
++ (NSString *)codeQR {
+    return AVMetadataObjectTypeQRCode;
+}
+
++ (NSString *)code128 {
+    return AVMetadataObjectTypeCode128Code;
+}
+
++ (NSString *)codeEan8 {
+    return AVMetadataObjectTypeEAN8Code;
+}
+
++ (NSString *)codeAztec {
+    return AVMetadataObjectTypeAztecCode;
+}
+
++ (NSString *)codeITF14 {
+    return AVMetadataObjectTypeITF14Code;
+}
+
++ (NSString *)codePDF417 {
+    return AVMetadataObjectTypePDF417Code;
+}
+
++ (NSString *)codeEan13 {
+    return AVMetadataObjectTypeEAN13Code;
+}
+
++ (NSString *)code39Mod43 {
+    return AVMetadataObjectTypeCode39Mod43Code;
+}
+
++ (NSString *)codeDataMatrix {
+    return AVMetadataObjectTypeDataMatrixCode;
+}
+
++ (NSString *)codeInterleaved2of5 {
+    return AVMetadataObjectTypeInterleaved2of5Code;
+}
+
++ (NSString *)aspect {
+    return AVLayerVideoGravityResizeAspect;
+}
+
++ (NSString *)aspectFill {
+    return AVLayerVideoGravityResizeAspectFill;
+}
+
++ (NSString *)normal {
+    return AVLayerVideoGravityResize;
 }
 
 - (NSDate *)g_toDateWithFormat:(NSString *)format {

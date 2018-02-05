@@ -7,25 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Defines.h"
 
 
 @interface GeGroupImageViewTransitionStyle: NSObject
 
-G_ClassReadonlyProperty GeGroupImageViewTransitionStyle * blurStyle;
+@property(nonatomic, class, readonly) GeGroupImageViewTransitionStyle * blurStyle;
 
-G_ClassReadonlyProperty GeGroupImageViewTransitionStyle * defaultStyle;
+@property(nonatomic, class, readonly) GeGroupImageViewTransitionStyle * defaultStyle;
 
-G_ReadonlyProperty(assign) NSInteger rawValue;
+@property(nonatomic, assign, readonly) NSInteger rawValue;
 @end
 
 @interface GeGroupImageView : UIView
 
-G_StrongProperty NSArray<UIImage *> * sourceImages;
+@property(nonatomic, strong) NSArray<UIImage *> * sourceImages;
 
-G_StrongProperty NSArray<NSString *> * sourceUrls;
+@property(nonatomic, strong) NSArray<NSString *> * sourceUrls;
 
-G_StrongProperty GeGroupImageViewTransitionStyle * transitionStyle; /// default
+@property(nonatomic, strong) GeGroupImageViewTransitionStyle * transitionStyle; /// default
 
 - (void) presentGroupImages: (NSArray<UIView *> *)groupImages toContainerView: (UIView *)containerView curIndex: (NSInteger)curIndex;
 @end

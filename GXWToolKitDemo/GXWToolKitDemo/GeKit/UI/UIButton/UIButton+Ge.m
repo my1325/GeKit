@@ -7,7 +7,7 @@
 //
 
 #import "UIButton+Ge.h"
-#import "WeakProxy.h"
+#import "G_WeakProxy.h"
 #import <objc/runtime.h>
 
 @implementation UIButton (Ge)

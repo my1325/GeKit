@@ -8,6 +8,7 @@
 
 #import "NSObject+Ge.h"
 #import <objc/runtime.h>
+#import <AVFoundation/AVFoundation.h>
 
 @implementation NSObject (Ge)
 static int executeBlock;

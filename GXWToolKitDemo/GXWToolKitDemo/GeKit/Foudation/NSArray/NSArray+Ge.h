@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Defines.h"
 
 @interface NSArray (Ge)
 
-G_ReadonlyProperty(strong) NSString * g_jsonString;
+@property(nonatomic, readonly) NSString * g_jsonString;
 
-G_ReadonlyProperty(strong) NSData * g_jsonData;
+@property(nonatomic, readonly) NSData * g_jsonData;
 
-G_ReadonlyProperty(strong) NSArray * g_reverse;
+@property(nonatomic, readonly) NSArray * g_reverse;
 
 - (NSArray *)g_map: (id(^)(id)) handler;
 
