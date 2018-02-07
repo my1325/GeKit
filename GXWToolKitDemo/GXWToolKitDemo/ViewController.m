@@ -7,6 +7,17 @@
 //
 
 #import "ViewController.h"
+#import <objc/runtime.h>
+
+@protocol TestProtocol<NSObject>
+@property(nonatomic, assign) NSInteger test;
+@property(nonatomic, strong) id test2;
+@property(nonatomic, copy) NSString * test3;
+@property(atomic, readonly, assign) int test4;
+@property(atomic, readwrite, assign) int test5;
+@property(atomic, readwrite, class) int test6;
+
+@end
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSTimer * timer;
@@ -23,7 +34,31 @@
 
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    [_tableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableViewCell"];
+//    [_tableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableViewCell"];
+    
+    unsigned int outCount = 0;
+//    objc_property_t * propertyList = protocol_copyPropertyList(@protocol(TestProtocol), &outCount);
+    objc_property_t * propertyList = protocol_copyPropertyList2(@protocol(TestProtocol), &outCount, YES, NO);
+    
+    for (unsigned int index = 0; index < outCount; index ++) {
+        
+        [self importProperty:propertyList[index]];
+    }
+}
+
+- (void)importProperty: (objc_property_t)property {
+    
+//    _name = [NSString stringWithUTF8String:property_getName(property)];
+    
+    unsigned int outCount = 0;
+    objc_property_attribute_t * attributes = property_copyAttributeList(property, &outCount);
+    
+    for (unsigned int index = 0; index < outCount; index ++) {
+        
+        objc_property_attribute_t attribute = attributes[index];
+        
+        NSLog(@"%s attribute {\n Name = %s, \n Value = %s}", property_getName(property), attribute.name, attribute.value);
+    }
 }
 
 - (IBAction)touchButton:(id)sender {
@@ -38,7 +73,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 20;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

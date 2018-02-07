@@ -9,6 +9,7 @@
 #import "UIButton+Ge.h"
 #import "G_WeakProxy.h"
 #import <objc/runtime.h>
+#import "G_UIControlEventAction.h"
 
 @implementation UIButton (Ge)
 
@@ -76,5 +77,13 @@ static int delegateR;
     [self ge_setTimerCount:0];
     [[self ge_timer] invalidate];
     objc_setAssociatedObject(self, &delegateR, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+static int touchUpInsideKey;
+- (void)g_touchUpInsideAction:(void(^)(UIButton * button))handler {
+    
+    [[GeUIControlEventAction addAction:^(id control, UIControlEvents event){
+        if (handler) handler(control);
+    } forEvent:UIControlEventTouchUpInside] associateToControl:self forKey:&touchUpInsideKey];
 }
 @end
