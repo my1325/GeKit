@@ -10,52 +10,123 @@
 
 @interface NSString (Ge)
 
+/**
+ libraryPath
+ */
 @property(nonatomic, readonly, class) NSString * g_libraryPath;
 
+/**
+ cachePath
+ */
 @property(nonatomic, readonly, class) NSString * g_cachePath;
 
+/**
+ documentPath
+ */
 @property(nonatomic, readonly, class) NSString * g_documentPath;
 
+/**
+ tempPath
+ */
 @property(nonatomic, readonly, class) NSString * g_tempPath;
 
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeUpce;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_code39;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_code39Mod43;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeEan13;
+/**
+QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeEan8;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_code93;
+/**
+QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_code128;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codePDF417;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeQR;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeAztec;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeInterleaved2of5;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeITF14;
+/**
+ QRCodeType
+ */
+@property (nonatomic, class, readonly) NSString * g_codeDataMatrix;
+/**
+ QRCodeVideoGravity
+ */
+@property (nonatomic, class, readonly) NSString * g_aspect;
+/**
+ QRCodeVideoGravity
+ */
+@property (nonatomic, class, readonly) NSString * g_aspectFill;
+/**
+ QRCodeVideoGravity
+ */
+@property (nonatomic, class, readonly) NSString * g_normal;
+/**
+ 字符集
+ */
+@property(nonatomic, readonly) NSArray<NSString *> * g_charactors;
+
+/**
+ url编码
+ */
 @property(nonatomic, readonly) NSString * g_urlEncoded;
 
+/**
+ 倒序排列
+ */
+@property(nonatomic, readonly) NSString * g_reverse;
+
+/**
+ json转化
+ */
 @property(nonatomic, readonly) id g_jsonObject;
 
-@property (nonatomic, class, readonly) NSString * codeUpce;
+/**
+ 日期
 
-@property (nonatomic, class, readonly) NSString * code39;
-
-@property (nonatomic, class, readonly) NSString * code39Mod43;
-
-@property (nonatomic, class, readonly) NSString * codeEan13;
-
-@property (nonatomic, class, readonly) NSString * codeEan8;
-
-@property (nonatomic, class, readonly) NSString * code93;
-
-@property (nonatomic, class, readonly) NSString * code128;
-
-@property (nonatomic, class, readonly) NSString * codePDF417;
-
-@property (nonatomic, class, readonly) NSString * codeQR;
-
-@property (nonatomic, class, readonly) NSString * codeAztec;
-
-@property (nonatomic, class, readonly) NSString * codeInterleaved2of5;
-
-@property (nonatomic, class, readonly) NSString * codeITF14;
-
-@property (nonatomic, class, readonly) NSString * codeDataMatrix;
-
-
-@property (nonatomic, class, readonly) NSString * aspect;
-
-@property (nonatomic, class, readonly) NSString * aspectFill;
-
-@property (nonatomic, class, readonly) NSString * normal;
-
+ @param format format方式
+ @return NSDate
+ */
 - (NSDate *) g_toDateWithFormat: (NSString *)format;
 
+/**
+ 枚举
+
+ @param handler handler
+ */
+- (void) g_enumerateWithHandler: (void(^)(NSString *))handler;
 @end
 

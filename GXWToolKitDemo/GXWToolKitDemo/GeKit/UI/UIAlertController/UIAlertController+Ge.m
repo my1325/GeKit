@@ -70,7 +70,7 @@
 
 - (void)g_show {
     
-    [GeAlertWindow.sharedWindow.rootViewController presentViewController:self animated:YES completion:nil];
     [GeAlertWindow.sharedWindow makeKeyAndVisible];
+    [GeAlertWindow.sharedWindow.rootViewController presentViewController:self animated:YES completion:nil];
 }
 @end

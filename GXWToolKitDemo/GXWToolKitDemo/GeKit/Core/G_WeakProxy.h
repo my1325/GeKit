@@ -10,6 +10,12 @@
 
 @interface GeWeakProxy : NSProxy
 
+/**
+ 弱代理，针对NSTimer和CADisplayLink
+
+ @param target target
+ @return GeWeakProxy
+ */
 + (instancetype) g_proxyWithTarget: (id)target;
 
 @end

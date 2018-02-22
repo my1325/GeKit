@@ -13,26 +13,29 @@
 
 static int textDidChange;
 - (void)g_editingDidChange:(void (^)(UITextField *, NSString *))changeHandler {
-    [GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
+    [[GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
         if (changeHandler) changeHandler(sender, sender.text);
-    } forEvent:UIControlEventEditingChanged];
+    } forEvent:UIControlEventEditingChanged] associateToControl:self forKey:&textDidChange];
 }
 
+static int editingDidBegin;
 - (void)g_editingDidBegin:(GeTextFiledActionHandler)beingHandler {
-    [GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
+    [[GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
         if (beingHandler) beingHandler(sender, sender.text);
-    } forEvent:UIControlEventEditingDidBegin];
+    } forEvent:UIControlEventEditingDidBegin] associateToControl:self forKey:&editingDidBegin];
 }
 
+static int edigtigDidEnd;
 - (void)g_editingDidEnd:(GeTextFiledActionHandler)endHandler {
-    [GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
+    [[GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
         if (endHandler) endHandler(sender, sender.text);
-    } forEvent:UIControlEventEditingDidEnd];
+    } forEvent:UIControlEventEditingDidEnd] associateToControl:self forKey:&edigtigDidEnd];
 }
 
+static int editingDidEndOnExit;
 - (void)g_editingDidEndOnExit:(GeTextFiledActionHandler)endOnExitHandler {
-    [GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
+    [[GeUIControlEventAction addAction:^(UITextField * sender, UIControlEvents event) {
         if (endOnExitHandler) endOnExitHandler(sender, sender.text);
-    } forEvent:UIControlEventEditingDidEndOnExit];
+    } forEvent:UIControlEventEditingDidEndOnExit] associateToControl:self forKey:&editingDidEndOnExit];
 }
 @end

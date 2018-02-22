@@ -51,10 +51,10 @@
 - (void)startCapture {
     
     if (!_videoGravity) {
-        _videoGravity = [QRCodeVideoGravity aspectFill];
+        _videoGravity = [QRCodeVideoGravity g_aspectFill];
     }
     if (_metadataObjectTypes.count == 0) {
-        _metadataObjectTypes = [NSSet setWithObject:[QRCodeType codeQR]];
+        _metadataObjectTypes = [NSSet setWithObject:[QRCodeType g_codeQR]];
     }
     
     if (!_prepared) {

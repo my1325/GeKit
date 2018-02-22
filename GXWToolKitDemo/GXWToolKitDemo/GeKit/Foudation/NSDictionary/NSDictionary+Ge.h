@@ -10,8 +10,14 @@
 
 @interface NSDictionary (Ge)
 
+/**
+ json string
+ */
 @property(nonatomic, readonly) NSString * g_jsonString;
 
+/**
+ json Data
+ */
 @property(nonatomic, readonly) NSData * g_jsonData;
 
 @end

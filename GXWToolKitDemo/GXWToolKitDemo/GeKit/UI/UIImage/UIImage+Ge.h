@@ -27,7 +27,7 @@
  @param centerImage 中间的logo
  @return UIImage
  */
-+ (UIImage *)qrCodeImageWithTitle: (NSString *)title
++ (UIImage *)g_qrCodeImageWithTitle: (NSString *)title
                              size: (CGSize)size
                       qrCodeColor: (UIColor *)qrCodeColor
                   backgroundColor: (UIColor *)backgroundColor
@@ -49,4 +49,39 @@
  */
 - (UIImage *)g_toTargetSize: (CGSize)size;
 
+
+/**
+ 保存到相册
+
+ @param completion completion
+ */
+- (void)g_saveToPhotosAlbumCompletion: (void(^)(UIImage * image, NSError * error))completion;
+
+/**
+ 批量保存图片
+
+ @param images images
+ @param completion (void(^)(NSArray<NSString *> * phassetIdentifiers, NSError * error))
+ 
+     PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:imageIds options:nil];
+     [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     
+     imageAsset = obj;
+     *stop = YES;
+ 
+     }];
+ 
+     if (imageAsset)
+     {
+     //加载图片数据
+     [[PHImageManager defaultManager] requestImageDataForAsset:imageAsset
+     options:nil
+     resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+ 
+     NSLog("imageData = %@", imageData);
+ 
+     }];
+     }
+ */
++ (void)g_saveImages: (NSArray<UIImage *> *)images toPhotoAlbumWithCompletion: (void(^)(NSArray<NSString *> * phassetIdentifiers, NSError * error))completion;
 @end

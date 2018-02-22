@@ -7,6 +7,8 @@
 //
 
 #import "UIImage+Ge.h"
+#import <Photos/Photos.h>
+#import <objc/runtime.h>
 
 @implementation UIImage (Ge)
 
@@ -137,7 +139,7 @@
     return newImage;
 }
 
-+ (UIImage *)qrCodeImageWithTitle:(NSString *)title
++ (UIImage *)g_qrCodeImageWithTitle:(NSString *)title
                              size:(CGSize)size
                       qrCodeColor:(UIColor *)qrCodeColor
                   backgroundColor:(UIColor *)backgroundColor
@@ -193,5 +195,34 @@
         }
     }
     return results.copy;
+}
+
+static int singleSaveCompletion;
+- (void)g_saveToPhotosAlbumCompletion:(void (^)(UIImage *, NSError *))completion {
+    
+    objc_setAssociatedObject(self, &singleSaveCompletion, completion, OBJC_ASSOCIATION_COPY);
+    UIImageWriteToSavedPhotosAlbum(self, self, @selector(p_g_handleResultWithImage:error:), nil);
+}
+
+- (void)p_g_handleResultWithImage: (UIImage *)image error: (NSError *)error {
+    
+    void(^block)(UIImage * image, NSError * error) = objc_getAssociatedObject(self, &singleSaveCompletion);
+    if (block) block(image, error);
+}
+
++ (void)g_saveImages:(NSArray<UIImage *> *)images toPhotoAlbumWithCompletion:(void (^)(NSArray<NSString *> *, NSError *))completion {
+    
+    NSMutableArray * ids = @[].mutableCopy;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        
+        for (UIImage * image in images) {
+            PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+            [ids addObject:req.placeholderForCreatedAsset.localIdentifier];
+        }
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        
+        if (completion)
+            completion(ids.copy, error);
+    }];
 }
 @end

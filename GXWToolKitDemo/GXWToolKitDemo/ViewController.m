@@ -7,7 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "NSString+Ge.h"
 #import <objc/runtime.h>
+#import "G_ProtocolProxy.h"
 
 typedef void(^testBlock)(id, NSInteger);
 
@@ -55,7 +57,27 @@ typedef struct TestStruct {
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 //    [_tableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableViewCell"];
     
+    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
 //    @encode(<#type-name#>)
+    _tableView.tableFooterView = [UIView new];
+    GeProtocolProxy * proxy = [GeProtocolProxy delegateProxyWithProtocol:@protocol(UITableViewDataSource)];
+    static int datasource;
+    [proxy associateToObject:self forKey:&datasource];
+    [proxy addAction:^id(id sender, SEL sel, ...) {
+        
+        return @(10);
+    } replaceSelector:@selector(tableView:numberOfRowsInSection:)];
+//    [proxy addAction:^id(id sender, SEL sel, ...) {
+//        return @(10);
+//    } replaceSelector:@selector(tableView:heightForRowAtIndexPath:)];
+    [proxy addAction:^id(id sender, SEL sel, ...) {
+        
+        UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        return cell;
+    } replaceSelector:@selector(tableView:cellForRowAtIndexPath:)];
+    
+    _tableView.dataSource = proxy;
+    
     unsigned int outCount = 0;
 //    objc_property_t * propertyList = protocol_copyPropertyList(@protocol(TestProtocol), &outCount);
     objc_property_t * propertyList = protocol_copyPropertyList2(@protocol(TestProtocol), &outCount, YES, YES);
@@ -64,14 +86,23 @@ typedef struct TestStruct {
         
         [self importProperty:propertyList[index]];
     }
+
+//    void(^size)(id) = ^(id a){};
+//    NSLog(@"%lu", class_getInstanceSize([size class]));
+//    int ints[] = {};
+//    NSLog(@"%s", @encode(typeof(ints)));
+//    NSLog(@"%s", @encode(typeof(int**)));
+//    NSLog(@"%s", @encode(typeof(NSString **)));
+//
+//    static int const i = 0;
+//    NSLog(@"%s", @encode(typeof(i)));
     
-    int ints[] = {};
-    NSLog(@"%s", @encode(typeof(ints)));
-    NSLog(@"%s", @encode(typeof(int**)));
-    NSLog(@"%s", @encode(typeof(NSString **)));
+    struct objc_method_description * methodList = protocol_copyMethodDescriptionList(@protocol(UITableViewDataSource), YES, YES, &outCount);
     
-    static int const i = 0;
-    NSLog(@"%s", @encode(typeof(i)));
+    for (NSInteger index = 0; index < outCount; index ++) {
+        
+        NSLog(@"selector = %s, types = %s", sel_getName(methodList[index].name), methodList[index].types);
+    }
 }
 
 - (void)importProperty: (objc_property_t)property {
@@ -85,8 +116,48 @@ typedef struct TestStruct {
         
         objc_property_attribute_t attribute = attributes[index];
         
-        NSLog(@"%s attribute {\n Name = %s, \n Value = %s}", property_getName(property), attribute.name, attribute.value);
+//        NSLog(@"%s attribute {\n Name = %s, \n Value = %s}", property_getName(property), attribute.name, attribute.value);
     }
+}
+
+- (void)p_decode: (NSString *)encodeValue {
+    
+//    NSString * encodeString = encodeValue;
+    
+    NSMutableString * typeName = @"".mutableCopy;
+    NSMutableString * typeValue = @"".mutableCopy;
+    [encodeValue g_enumerateWithHandler:^(NSString *charator) {
+      
+        if ([charator isEqualToString:@"="]) {
+            NSLog(@"typeName = %@", typeName);
+        }
+        
+        if (![typeName containsString:@"="]) {
+            [typeName appendString:charator];
+        }
+        else if ([charator isEqualToString:@"{"]) {
+            /// 结构体开始
+            [typeValue appendString:charator];
+        }
+        else if ([charator isEqualToString:@"}"]) {
+            /// 结构体结束
+            [typeValue appendString:charator];
+            NSLog(@"struct = %@", typeValue);
+        }
+        else if ([charator isEqualToString:@"("]) {
+            /// 联合开始
+            [typeValue appendString:charator];
+        }
+        else if ([charator isEqualToString:@")"]) {
+            /// 联合结束
+            [typeValue appendString:charator];
+            NSLog(@"union = %@", typeValue);
+        }
+        else if ([charator isEqualToString:@"["]) {
+            /// 数组开始
+            [typeValue appendString:charator];
+        }
+    }];
 }
 
 - (IBAction)touchButton:(id)sender {
