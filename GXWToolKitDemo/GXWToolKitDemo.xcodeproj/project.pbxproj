@@ -126,6 +126,12 @@
 				0F34B327200C714E005FD49F /* UI */,
 				0F34B31B200C586B005FD49F /* Core */,
 				0F34B34C200C9DA7005FD49F /* GeKit.h */,
+				0F5AC1402029A6A90096A320 /* G_ProtocolProxy.h */,
+				0F5AC1412029A6A90096A320 /* G_ProtocolProxy.m */,
+				0FECA050203E9F6100A9C17C /* G_Protocol.h */,
+				0FECA051203E9F6100A9C17C /* G_Protocol.m */,
+				0FECA053203E9F8F00A9C17C /* G_Property.h */,
+				0FECA054203E9F8F00A9C17C /* G_Property.m */,
 			);
 			path = GeKit;
 			sourceTree = "<group>";
@@ -148,12 +154,6 @@
 				0F34B332200C75BB005FD49F /* G_WeakProxy.m */,
 				0F5AC1392029A0EB0096A320 /* G_UIControlEventAction.h */,
 				0F5AC13A2029A0EB0096A320 /* G_UIControlEventAction.m */,
-				0F5AC1402029A6A90096A320 /* G_ProtocolProxy.h */,
-				0F5AC1412029A6A90096A320 /* G_ProtocolProxy.m */,
-				0FECA050203E9F6100A9C17C /* G_Protocol.h */,
-				0FECA051203E9F6100A9C17C /* G_Protocol.m */,
-				0FECA053203E9F8F00A9C17C /* G_Property.h */,
-				0FECA054203E9F8F00A9C17C /* G_Property.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -435,8 +435,7 @@
 				TargetAttributes = {
 					0F3CA0C31F0347DB00E79729 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 5DQGACEYAA;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -674,12 +673,14 @@
 			baseConfigurationReference = B6320AFCB80AE7AF7B5132A7 /* Pods-GXWToolKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5DQGACEYAA;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MZ.iOS.Career.GXWToolKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -688,12 +689,14 @@
 			baseConfigurationReference = CD3E960C2DC9E6D99198B09A /* Pods-GXWToolKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5DQGACEYAA;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MZ.iOS.Career.GXWToolKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

@@ -9,8 +9,8 @@
 #import "G_GroupImageView.h"
 #import "G_ProgressAnimateView.h"
 #import "UIView+Ge.h"
-#import <YYWebImage.h>
-#import <YYImage.h>
+#import <YYWebImage/YYWebImage.h>
+#import <YYImage/YYImage.h>
 
 @implementation GeGroupImageViewTransitionStyle
 
