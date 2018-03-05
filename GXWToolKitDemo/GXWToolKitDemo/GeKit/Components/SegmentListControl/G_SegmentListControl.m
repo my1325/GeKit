@@ -268,8 +268,8 @@
     
     NSInteger count = 0;
     CGFloat totalWidth = 0;
-    if ([_dataSource respondsToSelector:@selector(numOfItemsInSegmentListControl:)]) {
-        count = [_dataSource numOfItemsInSegmentListControl:self];
+    if ([_dataSource respondsToSelector:@selector(g_numOfItemsInSegmentListControl:)]) {
+        count = [_dataSource g_numOfItemsInSegmentListControl:self];
     }
     
     for (NSInteger index = 0; index < count; index ++) {
@@ -277,12 +277,12 @@
         NSString * key = NSStringFromRange(NSMakeRange(0, index));
 
         CGFloat width = 0;
-        if ([_delegate respondsToSelector:@selector(segmentListControl:widthForSegmentAtIndex:)]) {
-            width = [_delegate segmentListControl:self widthForSegmentAtIndex:index];
+        if ([_delegate respondsToSelector:@selector(g_segmentListControl:widthForSegmentAtIndex:)]) {
+            width = [_delegate g_segmentListControl:self widthForSegmentAtIndex:index];
         }
-        else if ([_dataSource respondsToSelector:@selector(segmentListControl:titleAtIndex:)]) {
+        else if ([_dataSource respondsToSelector:@selector(g_segmentListControl:titleAtIndex:)]) {
             
-            NSString * title = [_dataSource segmentListControl:self titleAtIndex:index];
+            NSString * title = [_dataSource g_segmentListControl:self titleAtIndex:index];
             CGRect rect = [title boundingRectWithSize: (CGSize){MAXFLOAT, self.bounds.size.height}
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                            attributes:[self p_attributeForSelected]
@@ -302,7 +302,7 @@
     
     CGFloat width = MIN([UIScreen mainScreen].bounds.size.width, self.bounds.size.width);
     /// 如果是用户自定义的宽度或者总宽度加起来已经超过self的宽度则不处理
-    if ([_delegate respondsToSelector:@selector(segmentListControl:widthForSegmentAtIndex:)] || totalWidth > width) return;
+    if ([_delegate respondsToSelector:@selector(g_segmentListControl:widthForSegmentAtIndex:)] || totalWidth > width) return;
     
     for (NSString * key in _cacheWidth.allKeys) {
         _cacheWidth[key] = @(width / count);
@@ -385,8 +385,8 @@
     CGRect _contentViewFrame = (CGRect){ frame.origin.x + (frame.size.width / 2 - size.width / 2), 0, size.width, size.height};
     
     CGSize _indicatorSize = (CGSize){[_cacheWidth[NSStringFromRange(NSMakeRange(0, index))] floatValue], 4};
-    if ([_delegate respondsToSelector:@selector(segmentListControl:bottomIndicatorSizeAtIndex:)]) {
-        _indicatorSize = [_delegate segmentListControl:self bottomIndicatorSizeAtIndex:index];
+    if ([_delegate respondsToSelector:@selector(g_segmentListControl:bottomIndicatorSizeAtIndex:)]) {
+        _indicatorSize = [_delegate g_segmentListControl:self bottomIndicatorSizeAtIndex:index];
     }
     
     CGRect _indicatoryFrame = (CGRect){0, _contentViewFrame.size.height - _indicatorSize.height / 2, _indicatorSize.width, _indicatorSize.height};
@@ -458,8 +458,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (_collectionView == collectionView) {
-        if ([_delegate respondsToSelector:@selector(segmentListControl:didSelectedAtIndex:)]) {
-            [_delegate segmentListControl:self didSelectedAtIndex:indexPath.item];
+        if ([_delegate respondsToSelector:@selector(g_segmentListControl:didSelectedAtIndex:)]) {
+            [_delegate g_segmentListControl:self didSelectedAtIndex:indexPath.item];
         }
         [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
         [self p_changeIndicatorToIndex:indexPath.item animated:YES];
@@ -468,8 +468,8 @@
 
 #pragma mark - UICollectionDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if ([_dataSource respondsToSelector:@selector(numOfItemsInSegmentListControl:)]) {
-        return [_dataSource numOfItemsInSegmentListControl:self];
+    if ([_dataSource respondsToSelector:@selector(g_numOfItemsInSegmentListControl:)]) {
+        return [_dataSource g_numOfItemsInSegmentListControl:self];
     }
     return 0;
 }
@@ -479,8 +479,8 @@
     if (collectionView == _collectionView) {
         GeSegmentListControlCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GeSegmentListControlCell" forIndexPath:indexPath];
         NSString * title = @"";
-        if ([_dataSource respondsToSelector:@selector(segmentListControl:titleAtIndex:)]) {
-            title = [_dataSource segmentListControl:self titleAtIndex:indexPath.item];
+        if ([_dataSource respondsToSelector:@selector(g_segmentListControl:titleAtIndex:)]) {
+            title = [_dataSource g_segmentListControl:self titleAtIndex:indexPath.item];
         }
         [cell prepareForReloadWithTitle:[[NSAttributedString alloc] initWithString:title attributes:[self p_attributeForNormal]]
                         backgroundColor:[self p_backgroundColorForNormal]
@@ -491,8 +491,8 @@
         
         GeSegmentListControlCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GeSegmentListControlCell" forIndexPath:indexPath];
         NSString * title = @"";
-        if ([_dataSource respondsToSelector:@selector(segmentListControl:titleAtIndex:)]) {
-            title = [_dataSource segmentListControl:self titleAtIndex:indexPath.item];
+        if ([_dataSource respondsToSelector:@selector(g_segmentListControl:titleAtIndex:)]) {
+            title = [_dataSource g_segmentListControl:self titleAtIndex:indexPath.item];
         }
         [cell prepareForReloadWithTitle:[[NSAttributedString alloc] initWithString:title attributes:[self p_attributeForSelected]]
                         backgroundColor:[self p_backgroundColorForSeleceted]

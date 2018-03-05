@@ -13,18 +13,18 @@
 @protocol GeSegmentListControlDelegate<NSObject>
 
 @optional
-- (void) segmentListControl: (GeSegmentListControl *)control didSelectedAtIndex: (NSInteger)index;
+- (void) g_segmentListControl: (GeSegmentListControl *)control didSelectedAtIndex: (NSInteger)index;
 
-- (CGSize) segmentListControl: (GeSegmentListControl *)control bottomIndicatorSizeAtIndex: (NSInteger)index;
+- (CGSize) g_segmentListControl: (GeSegmentListControl *)control bottomIndicatorSizeAtIndex: (NSInteger)index;
 
-- (CGFloat) segmentListControl: (GeSegmentListControl *)control widthForSegmentAtIndex: (NSInteger)index;
+- (CGFloat) g_segmentListControl: (GeSegmentListControl *)control widthForSegmentAtIndex: (NSInteger)index;
 @end
 
 @protocol GeSegmentListControlDataSource<NSObject>
 
-- (NSInteger) numOfItemsInSegmentListControl: (GeSegmentListControl *)control;
+- (NSInteger) g_numOfItemsInSegmentListControl: (GeSegmentListControl *)control;
 
-- (NSString *) segmentListControl: (GeSegmentListControl *)control titleAtIndex: (NSInteger)index;
+- (NSString *) g_segmentListControl: (GeSegmentListControl *)control titleAtIndex: (NSInteger)index;
 @end
 
 @interface GeSegmentListControl : UIControl

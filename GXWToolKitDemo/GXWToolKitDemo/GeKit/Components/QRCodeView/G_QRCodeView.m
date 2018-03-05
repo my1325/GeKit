@@ -281,8 +281,8 @@
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([_delegate respondsToSelector:@selector(qrCodeView:didCaptureResults:)]) {
-            [_delegate qrCodeView:self didCaptureResults:results];
+        if ([_delegate respondsToSelector:@selector(g_qrCodeView:didCaptureResults:)]) {
+            [_delegate g_qrCodeView:self didCaptureResults:results];
         }
     });
 }

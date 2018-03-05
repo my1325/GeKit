@@ -22,7 +22,7 @@
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector {
-    
+
     return [target respondsToSelector:aSelector];
 }
 

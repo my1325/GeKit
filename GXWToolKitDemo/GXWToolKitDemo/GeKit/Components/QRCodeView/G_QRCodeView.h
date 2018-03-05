@@ -14,7 +14,7 @@ typedef NSString QRCodeVideoGravity;
 @class GeQRCodeView;
 @protocol GeQRCodeViewDelegate<NSObject>
 
-- (void)qrCodeView: (GeQRCodeView *)qrCodeView didCaptureResults: (NSArray<NSString *> *)results;
+- (void)g_qrCodeView: (GeQRCodeView *)qrCodeView didCaptureResults: (NSArray<NSString *> *)results;
 @end
 
 @interface GeQRCodeInterestRect: NSObject

@@ -10,6 +10,7 @@
 #import "NSString+Ge.h"
 #import <objc/runtime.h>
 #import "G_ProtocolProxy.h"
+#import "G_CycleScrollView.h"
 
 typedef void(^testBlock)(id, NSInteger);
 
@@ -45,6 +46,8 @@ typedef struct TestStruct {
 
 @property (nonatomic, weak) IBOutlet UITextField * textField;
 @property (nonatomic, weak) IBOutlet UITableView * tableView;
+
+@property (nonatomic, weak) IBOutlet GeCycleScrollView * cycleScrollView;
 @end
 
 @implementation ViewController
@@ -103,6 +106,17 @@ typedef struct TestStruct {
         
         NSLog(@"selector = %s, types = %s", sel_getName(methodList[index].name), methodList[index].types);
     }
+    
+    _cycleScrollView.imageUrls = @[@"http://img.wdjimg.com/image/video/d999011124c9ed55c2dd74e0ccee36ea_0_0.jpeg",
+                                   @"http://img.wdjimg.com/image/video/2ddcad6dcc38c5ca88614b7c5543199a_0_0.jpeg",
+                                   @"http://img.wdjimg.com/image/video/6d6ccfd79ee1deac2585150f40915c09_0_0.jpeg",
+                                   @"http://img.wdjimg.com/image/video/2111a863ea34825012b0c5c9dec71843_0_0.jpeg",
+                                   @"http://img.wdjimg.com/image/video/b4085a983cedd8a8b1e83ba2bd8ecdd8_0_0.jpeg",
+                                   @"http://img.wdjimg.com/image/video/2d59165e816151350a2b683b656a270a_0_0.jpeg",
+                                   @"http://img.wdjimg.com/image/video/dc2009ee59998039f795fbc7ac2f831f_0_0.jpeg"];
+    _cycleScrollView.parallax = 0.5;
+    _cycleScrollView.scrollDirection = GeCycleScrollViewScrollDirectionVertical;
+    [_cycleScrollView reloadData];
 }
 
 - (void)importProperty: (objc_property_t)property {

@@ -49,7 +49,6 @@
  */
 - (UIImage *)g_toTargetSize: (CGSize)size;
 
-
 /**
  保存到相册
 

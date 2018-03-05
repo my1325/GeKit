@@ -21,6 +21,11 @@
 		0F34B343200C8CB7005FD49F /* NSArray+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B342200C8CB7005FD49F /* NSArray+Ge.m */; };
 		0F34B347200C9266005FD49F /* NSDictionary+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B346200C9266005FD49F /* NSDictionary+Ge.m */; };
 		0F34B34A200C977A005FD49F /* UIViewController+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B349200C977A005FD49F /* UIViewController+Ge.m */; };
+		0F376168204919060092840D /* NSMutableAttributedString+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F376167204919060092840D /* NSMutableAttributedString+Ge.m */; };
+		0F37616C20492AEC0092840D /* G_Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F37616B20492AEC0092840D /* G_Queue.m */; };
+		0F37617020492FD50092840D /* G_Semphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F37616F20492FD50092840D /* G_Semphore.m */; };
+		0F376173204933AE0092840D /* G_Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F376172204933AE0092840D /* G_Group.m */; };
+		0F376177204939430092840D /* G_CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F376176204939430092840D /* G_CycleScrollView.m */; };
 		0F3CA0C91F0347DB00E79729 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3CA0C81F0347DB00E79729 /* main.m */; };
 		0F3CA0CC1F0347DB00E79729 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3CA0CB1F0347DB00E79729 /* AppDelegate.m */; };
 		0F3CA0CF1F0347DB00E79729 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3CA0CE1F0347DB00E79729 /* ViewController.m */; };
@@ -68,6 +73,16 @@
 		0F34B348200C977A005FD49F /* UIViewController+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Ge.h"; sourceTree = "<group>"; };
 		0F34B349200C977A005FD49F /* UIViewController+Ge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Ge.m"; sourceTree = "<group>"; };
 		0F34B34C200C9DA7005FD49F /* GeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeKit.h; sourceTree = "<group>"; };
+		0F376166204919060092840D /* NSMutableAttributedString+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Ge.h"; sourceTree = "<group>"; };
+		0F376167204919060092840D /* NSMutableAttributedString+Ge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Ge.m"; sourceTree = "<group>"; };
+		0F37616A20492AEC0092840D /* G_Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_Queue.h; sourceTree = "<group>"; };
+		0F37616B20492AEC0092840D /* G_Queue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_Queue.m; sourceTree = "<group>"; };
+		0F37616E20492FD50092840D /* G_Semphore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_Semphore.h; sourceTree = "<group>"; };
+		0F37616F20492FD50092840D /* G_Semphore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_Semphore.m; sourceTree = "<group>"; };
+		0F376171204933AE0092840D /* G_Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_Group.h; sourceTree = "<group>"; };
+		0F376172204933AE0092840D /* G_Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_Group.m; sourceTree = "<group>"; };
+		0F376175204939430092840D /* G_CycleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_CycleScrollView.h; sourceTree = "<group>"; };
+		0F376176204939430092840D /* G_CycleScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_CycleScrollView.m; sourceTree = "<group>"; };
 		0F3CA0C41F0347DB00E79729 /* GXWToolKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GXWToolKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3CA0C81F0347DB00E79729 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F3CA0CA1F0347DB00E79729 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +165,7 @@
 		0F34B31B200C586B005FD49F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0F37616920492AD80092840D /* GCD */,
 				0F34B331200C75BB005FD49F /* G_WeakProxy.h */,
 				0F34B332200C75BB005FD49F /* G_WeakProxy.m */,
 				0F5AC1392029A0EB0096A320 /* G_UIControlEventAction.h */,
@@ -185,6 +201,7 @@
 		0F34B328200C7158005FD49F /* Foudation */ = {
 			isa = PBXGroup;
 			children = (
+				0F376165204918D40092840D /* NSAttributeString */,
 				0F34B344200C922B005FD49F /* NSDictionary */,
 				0F34B340200C8CA6005FD49F /* NSArray */,
 				0F34B338200C80B7005FD49F /* NSString */,
@@ -274,6 +291,37 @@
 			path = UIResonpder;
 			sourceTree = "<group>";
 		};
+		0F376165204918D40092840D /* NSAttributeString */ = {
+			isa = PBXGroup;
+			children = (
+				0F376166204919060092840D /* NSMutableAttributedString+Ge.h */,
+				0F376167204919060092840D /* NSMutableAttributedString+Ge.m */,
+			);
+			path = NSAttributeString;
+			sourceTree = "<group>";
+		};
+		0F37616920492AD80092840D /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				0F37616A20492AEC0092840D /* G_Queue.h */,
+				0F37616B20492AEC0092840D /* G_Queue.m */,
+				0F37616E20492FD50092840D /* G_Semphore.h */,
+				0F37616F20492FD50092840D /* G_Semphore.m */,
+				0F376171204933AE0092840D /* G_Group.h */,
+				0F376172204933AE0092840D /* G_Group.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		0F3761742049391E0092840D /* CycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				0F376175204939430092840D /* G_CycleScrollView.h */,
+				0F376176204939430092840D /* G_CycleScrollView.m */,
+			);
+			path = CycleScrollView;
+			sourceTree = "<group>";
+		};
 		0F3CA0BB1F0347DB00E79729 = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +390,7 @@
 		0F447008201EE9ED00388252 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0F3761742049391E0092840D /* CycleScrollView */,
 				0F5AC1432029AA630096A320 /* SegmentListControl */,
 				0F86833120285F3800B44AEA /* QRCodeView */,
 				0F447004201EE62600388252 /* GroupImageView */,
@@ -435,7 +484,8 @@
 				TargetAttributes = {
 					0F3CA0C31F0347DB00E79729 = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 5DQGACEYAA;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -532,11 +582,15 @@
 				0F34B31F200C5CE0005FD49F /* UIAlertController+Ge.m in Sources */,
 				0F3CA0C91F0347DB00E79729 /* main.m in Sources */,
 				0FECA052203E9F6100A9C17C /* G_Protocol.m in Sources */,
+				0F376168204919060092840D /* NSMutableAttributedString+Ge.m in Sources */,
 				0F34B326200C6834005FD49F /* UIResponder+Ge.m in Sources */,
 				0F447007201EE66200388252 /* G_GroupImageView.m in Sources */,
 				0F5AC1422029A6A90096A320 /* G_ProtocolProxy.m in Sources */,
+				0F376173204933AE0092840D /* G_Group.m in Sources */,
 				0F5AC1462029AA630096A320 /* G_SegmentListControl.m in Sources */,
 				0F34B347200C9266005FD49F /* NSDictionary+Ge.m in Sources */,
+				0F37616C20492AEC0092840D /* G_Queue.m in Sources */,
+				0F376177204939430092840D /* G_CycleScrollView.m in Sources */,
 				0F5AC13B2029A0EB0096A320 /* G_UIControlEventAction.m in Sources */,
 				0F34B337200C7C4F005FD49F /* UIView+Ge.m in Sources */,
 				0F34B31A200C5828005FD49F /* GeAlertWindow.m in Sources */,
@@ -546,6 +600,7 @@
 				0F34B343200C8CB7005FD49F /* NSArray+Ge.m in Sources */,
 				0F34B34A200C977A005FD49F /* UIViewController+Ge.m in Sources */,
 				0F34B323200C6789005FD49F /* NSObject+Ge.m in Sources */,
+				0F37617020492FD50092840D /* G_Semphore.m in Sources */,
 				0F34B33F200C884C005FD49F /* UIImage+Ge.m in Sources */,
 				0F86833420285F3900B44AEA /* G_QRCodeView.m in Sources */,
 				0F447002201EE0FD00388252 /* G_LoadingAnimateView.m in Sources */,
@@ -673,8 +728,9 @@
 			baseConfigurationReference = B6320AFCB80AE7AF7B5132A7 /* Pods-GXWToolKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5DQGACEYAA;
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
@@ -689,8 +745,9 @@
 			baseConfigurationReference = CD3E960C2DC9E6D99198B09A /* Pods-GXWToolKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5DQGACEYAA;
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
