@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GeKit"
-  s.version      = "0.0.1.0"
+  s.version      = "0.0.2.0"
   s.summary      = "Some Useful Tools For iOS"
   s.homepage     = "https://github.com/my1325/GeKit"
   s.license      = "MIT"
