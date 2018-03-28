@@ -76,7 +76,7 @@ static int delegateR;
     
     [self ge_setTimerCount:0];
     [[self ge_timer] invalidate];
-    objc_setAssociatedObject(self, &delegateR, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &timerR, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 static int touchUpInsideKey;

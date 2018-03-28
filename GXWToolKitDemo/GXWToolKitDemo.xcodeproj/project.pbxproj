@@ -41,6 +41,7 @@
 		0F5AC1422029A6A90096A320 /* G_ProtocolProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AC1412029A6A90096A320 /* G_ProtocolProxy.m */; };
 		0F5AC1462029AA630096A320 /* G_SegmentListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AC1452029AA630096A320 /* G_SegmentListControl.m */; };
 		0F86833420285F3900B44AEA /* G_QRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86833220285F3800B44AEA /* G_QRCodeView.m */; };
+		0FD5315D206A7B5E00504935 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5315C206A7B5E00504935 /* SecondViewController.m */; };
 		0FECA052203E9F6100A9C17C /* G_Protocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FECA051203E9F6100A9C17C /* G_Protocol.m */; };
 		0FECA055203E9F8F00A9C17C /* G_Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FECA054203E9F8F00A9C17C /* G_Property.m */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,8 @@
 		0F5AC1452029AA630096A320 /* G_SegmentListControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_SegmentListControl.m; sourceTree = "<group>"; };
 		0F86833220285F3800B44AEA /* G_QRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_QRCodeView.m; sourceTree = "<group>"; };
 		0F86833320285F3800B44AEA /* G_QRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G_QRCodeView.h; sourceTree = "<group>"; };
+		0FD5315B206A7B5E00504935 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		0FD5315C206A7B5E00504935 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0FECA050203E9F6100A9C17C /* G_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_Protocol.h; sourceTree = "<group>"; };
 		0FECA051203E9F6100A9C17C /* G_Protocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_Protocol.m; sourceTree = "<group>"; };
 		0FECA053203E9F8F00A9C17C /* G_Property.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_Property.h; sourceTree = "<group>"; };
@@ -353,6 +356,8 @@
 				0F3CA0D51F0347DB00E79729 /* LaunchScreen.storyboard */,
 				0F3CA0D81F0347DB00E79729 /* Info.plist */,
 				0F3CA0C71F0347DB00E79729 /* Supporting Files */,
+				0FD5315B206A7B5E00504935 /* SecondViewController.h */,
+				0FD5315C206A7B5E00504935 /* SecondViewController.m */,
 			);
 			path = GXWToolKitDemo;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				0F447002201EE0FD00388252 /* G_LoadingAnimateView.m in Sources */,
 				0F447001201EE0FD00388252 /* G_ProgressAnimateView.m in Sources */,
 				0F447003201EE0FD00388252 /* G_AnimateView.m in Sources */,
+				0FD5315D206A7B5E00504935 /* SecondViewController.m in Sources */,
 				0F5AC13F2029A4410096A320 /* UITextField+Ge.m in Sources */,
 				0F34B330200C723A005FD49F /* UIButton+Ge.m in Sources */,
 			);

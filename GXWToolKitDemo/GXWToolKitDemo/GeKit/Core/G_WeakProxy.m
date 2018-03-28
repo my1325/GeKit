@@ -32,9 +32,9 @@
 }
 
 - (void)forwardInvocation:(NSInvocation *)invocation {
-    
     void * null = NULL;
     [invocation setReturnValue:&null];
+    [invocation invokeWithTarget:target];
 }
 
 - (id)forwardingTargetForSelector:(SEL)sel {

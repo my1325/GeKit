@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import "G_ProtocolProxy.h"
 #import "G_CycleScrollView.h"
+#import "SecondViewController.h"
 
 typedef void(^testBlock)(id, NSInteger);
 
@@ -42,12 +43,12 @@ typedef struct TestStruct {
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) NSTimer * timer;
 
 @property (nonatomic, weak) IBOutlet UITextField * textField;
 @property (nonatomic, weak) IBOutlet UITableView * tableView;
 
 @property (nonatomic, weak) IBOutlet GeCycleScrollView * cycleScrollView;
+
 @end
 
 @implementation ViewController
@@ -117,6 +118,12 @@ typedef struct TestStruct {
     _cycleScrollView.parallax = 0.5;
     _cycleScrollView.scrollDirection = GeCycleScrollViewScrollDirectionVertical;
     [_cycleScrollView reloadData];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        SecondViewController * viewController = [[SecondViewController alloc] init];
+        viewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:viewController animated:YES];
+    });
 }
 
 - (void)importProperty: (objc_property_t)property {
@@ -132,6 +139,14 @@ typedef struct TestStruct {
         
 //        NSLog(@"%s attribute {\n Name = %s, \n Value = %s}", property_getName(property), attribute.name, attribute.value);
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+    });
+}
+
+- (void)p_handleTimer {
+    
 }
 
 - (void)p_decode: (NSString *)encodeValue {

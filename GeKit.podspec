@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'GXWToolKitDemo/GXWToolKitDemo/GeKit/GeKit.h'
 
     s.subspec 'GeKitCore' do |ss|
-        ss.source_files = 'GXWToolKitDemo/GXWToolKitDemo/GeKit/Core/*.{h,m}'
+        ss.source_files = 'GXWToolKitDemo/GXWToolKitDemo/GeKit/Core/*.{h,m}, GXWToolKitDemo/GXWToolKitDemo/GeKit/Core/GCD/*.{h,m}, '
     end
     s.subspec 'GeKitUI' do |ss|
         ss.source_files = 'GXWToolKitDemo/GXWToolKitDemo/GeKit/UI/*/*.{h,m}'
