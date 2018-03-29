@@ -40,6 +40,8 @@
 		0F5AC13F2029A4410096A320 /* UITextField+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AC13E2029A4410096A320 /* UITextField+Ge.m */; };
 		0F5AC1422029A6A90096A320 /* G_ProtocolProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AC1412029A6A90096A320 /* G_ProtocolProxy.m */; };
 		0F5AC1462029AA630096A320 /* G_SegmentListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AC1452029AA630096A320 /* G_SegmentListControl.m */; };
+		0F653EEA206C778C006F769C /* UIColor+Ge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F653EE9206C778C006F769C /* UIColor+Ge.m */; };
+		0F653EEE206C77F1006F769C /* GeAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F653EED206C77F1006F769C /* GeAlertController.m */; };
 		0F86833420285F3900B44AEA /* G_QRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F86833220285F3800B44AEA /* G_QRCodeView.m */; };
 		0FD5315D206A7B5E00504935 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD5315C206A7B5E00504935 /* SecondViewController.m */; };
 		0FECA052203E9F6100A9C17C /* G_Protocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FECA051203E9F6100A9C17C /* G_Protocol.m */; };
@@ -110,6 +112,10 @@
 		0F5AC1412029A6A90096A320 /* G_ProtocolProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_ProtocolProxy.m; sourceTree = "<group>"; };
 		0F5AC1442029AA630096A320 /* G_SegmentListControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G_SegmentListControl.h; sourceTree = "<group>"; };
 		0F5AC1452029AA630096A320 /* G_SegmentListControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_SegmentListControl.m; sourceTree = "<group>"; };
+		0F653EE8206C778C006F769C /* UIColor+Ge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ge.h"; sourceTree = "<group>"; };
+		0F653EE9206C778C006F769C /* UIColor+Ge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ge.m"; sourceTree = "<group>"; };
+		0F653EEC206C77F1006F769C /* GeAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeAlertController.h; sourceTree = "<group>"; };
+		0F653EED206C77F1006F769C /* GeAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeAlertController.m; sourceTree = "<group>"; };
 		0F86833220285F3800B44AEA /* G_QRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_QRCodeView.m; sourceTree = "<group>"; };
 		0F86833320285F3800B44AEA /* G_QRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G_QRCodeView.h; sourceTree = "<group>"; };
 		0FD5315B206A7B5E00504935 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 		0F34B327200C714E005FD49F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0F653EE7206C7769006F769C /* UIColor */,
 				0F5AC13C2029A4210096A320 /* UITextFiled */,
 				0F34B34D200C9E4E005FD49F /* UIResonpder */,
 				0F34B33C200C883F005FD49F /* UIImage */,
@@ -395,6 +402,7 @@
 		0F447008201EE9ED00388252 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0F653EEB206C77D1006F769C /* AlertController */,
 				0F3761742049391E0092840D /* CycleScrollView */,
 				0F5AC1432029AA630096A320 /* SegmentListControl */,
 				0F86833120285F3800B44AEA /* QRCodeView */,
@@ -427,6 +435,24 @@
 				0F5AC1452029AA630096A320 /* G_SegmentListControl.m */,
 			);
 			path = SegmentListControl;
+			sourceTree = "<group>";
+		};
+		0F653EE7206C7769006F769C /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				0F653EE8206C778C006F769C /* UIColor+Ge.h */,
+				0F653EE9206C778C006F769C /* UIColor+Ge.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		0F653EEB206C77D1006F769C /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				0F653EEC206C77F1006F769C /* GeAlertController.h */,
+				0F653EED206C77F1006F769C /* GeAlertController.m */,
+			);
+			path = AlertController;
 			sourceTree = "<group>";
 		};
 		0F86833120285F3800B44AEA /* QRCodeView */ = {
@@ -598,7 +624,9 @@
 				0F376177204939430092840D /* G_CycleScrollView.m in Sources */,
 				0F5AC13B2029A0EB0096A320 /* G_UIControlEventAction.m in Sources */,
 				0F34B337200C7C4F005FD49F /* UIView+Ge.m in Sources */,
+				0F653EEA206C778C006F769C /* UIColor+Ge.m in Sources */,
 				0F34B31A200C5828005FD49F /* GeAlertWindow.m in Sources */,
+				0F653EEE206C77F1006F769C /* GeAlertController.m in Sources */,
 				0FECA055203E9F8F00A9C17C /* G_Property.m in Sources */,
 				0F34B32C200C717A005FD49F /* UITableView+Ge.m in Sources */,
 				0F34B33B200C80CA005FD49F /* NSString+Ge.m in Sources */,
@@ -738,6 +766,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DQGACEYAA;
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MZ.iOS.Career.GXWToolKitDemo;
@@ -755,6 +784,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DQGACEYAA;
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MZ.iOS.Career.GXWToolKitDemo;

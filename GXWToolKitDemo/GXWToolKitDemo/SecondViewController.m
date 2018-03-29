@@ -16,11 +16,24 @@
 @end
 
 @implementation SecondViewController
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+//    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    self.modalPresentationStyle = UIModalPresentationFormSheet;
+    return self;
+}
+
+- (CGSize)preferredContentSize {
+    return (CGSize){[UIScreen mainScreen].bounds.size.width, 200};
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    self.view.backgroundColor = [UIColor redColor];
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(p_customBack)];
     
     _button = [UIButton buttonWithType:UIButtonTypeCustom];

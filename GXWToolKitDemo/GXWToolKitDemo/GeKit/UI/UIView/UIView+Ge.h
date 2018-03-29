@@ -119,4 +119,9 @@
  @param druration 动画时间
  */
 - (void)g_animateWithVisualEffect: (UIVisualEffect *)effect withDuration: (NSTimeInterval)druration;
+
+/**
+ 移除所有子视图
+ */
+- (void)g_removeAllSubviews;
 @end

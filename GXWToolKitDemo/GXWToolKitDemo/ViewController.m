@@ -12,6 +12,7 @@
 #import "G_ProtocolProxy.h"
 #import "G_CycleScrollView.h"
 #import "SecondViewController.h"
+#import "GeAlertController.h"
 
 typedef void(^testBlock)(id, NSInteger);
 
@@ -120,9 +121,9 @@ typedef struct TestStruct {
     [_cycleScrollView reloadData];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        SecondViewController * viewController = [[SecondViewController alloc] init];
-        viewController.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:viewController animated:YES];
+//        SecondViewController * viewController = [[SecondViewController alloc] init];
+//        viewController.hidesBottomBarWhenPushed = YES;
+//        [self presentViewController:viewController animated:YES completion:nil];
     });
 }
 
@@ -191,6 +192,24 @@ typedef struct TestStruct {
 
 - (IBAction)touchButton:(id)sender {
     [self.textField resignFirstResponder];
+    
+    GeAlertController * controller = [GeAlertController alertControllerWithTitle:[[NSAttributedString alloc] initWithString:@"title"] message:[[NSAttributedString alloc] initWithString:@"message"] preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    GeAction * action0 = [GeAction actionWithTitle:[[NSAttributedString alloc] initWithString:@"action0"] handler:^{
+        NSLog(@"touch action0");
+    }];
+    
+    GeAction * action1 = [GeAction actionWithTitle:[[NSAttributedString alloc] initWithString:@"action1"] handler:^{
+        NSLog(@"touch action1");
+    }];
+    
+    GeAction * action2 = [GeAction actionWithTitle:[[NSAttributedString alloc] initWithString:@"action2"] handler:^{
+        NSLog(@"touch action2");
+    }];
+    
+    [controller addActions:@[action0, action1, action2]];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 

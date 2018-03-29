@@ -28,6 +28,14 @@
                                     <constraint firstAttribute="height" constant="200" id="rxF-bq-bcp"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8H-BW-0cv">
+                                <rect key="frame" x="16" y="386" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BlP-fl-we7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -80,7 +88,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZY-y2-EUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075.2" y="138.53073463268368"/>
+            <point key="canvasLocation" x="754" y="188"/>
         </scene>
     </scenes>
 </document>
