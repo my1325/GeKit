@@ -8,6 +8,7 @@
 
 #import "GeAlertController.h"
 #import "UIView+Ge.h"
+#import "UIColor+Ge.h"
 
 @interface GeAction ()
 @property (nonatomic, strong) NSAttributedString * title;
@@ -66,12 +67,12 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        _titleLabel.textColor = [UIColor blackColor];
+        _titleLabel.font = [UIFont systemFontOfSize:15];
+        _titleLabel.textColor = [UIColor g_colorWithHex:0x333333];
         _titleLabel.adjustsFontSizeToFitWidth = YES;
         [self addSubview:_titleLabel];
     }
-    _titleLabel.frame = (CGRect){0, 0, self.g_width, _title.length > 0 ? 30 : 0};
+    _titleLabel.frame = (CGRect){0, 0, self.g_width, _title.length > 0 ? 60 : 0};
     _titleLabel.attributedText = title.copy;
 }
 
@@ -82,12 +83,12 @@
         _messageLabel = [[UILabel alloc] init];
         _messageLabel.textAlignment = NSTextAlignmentCenter;
         _messageLabel.font = [UIFont systemFontOfSize:13];
-        _messageLabel.textColor = [UIColor darkGrayColor];
+        _messageLabel.textColor = [UIColor g_colorWithHex:0x666666];
         _messageLabel.numberOfLines = 2;
         _messageLabel.adjustsFontSizeToFitWidth = YES;
         [self addSubview:_messageLabel];
     }
-    _messageLabel.frame = (CGRect){0, 0, self.g_width, _message.length > 0 ? 40 : 0};
+    _messageLabel.frame = (CGRect){0, 0, self.g_width, _message.length > 0 ? 50 : 0};
     _messageLabel.attributedText = message.copy;
 }
 
@@ -111,20 +112,20 @@
         
         if (_actions.count == actions.count && [actions indexOfObject:action] > 0) {
             UIView * sep = [[UIView alloc] init];
-            sep.backgroundColor = [UIColor lightGrayColor];
+            sep.backgroundColor = [UIColor g_colorWithHex:0xe8e8e8];
             [_buttonSep addObject:sep];
             [self addSubview:sep];
         }
         else if (_actions.count > actions.count) {
             UIView * sep = [[UIView alloc] init];
-            sep.backgroundColor = [UIColor lightGrayColor];
+            sep.backgroundColor = [UIColor g_colorWithHex:0xe8e8e8];
             [_buttonSep addObject:sep];
             [self addSubview:sep];
         }
     }
     
     _bottomSep = [[UIView alloc] init];
-    _bottomSep.backgroundColor = [UIColor lightGrayColor];
+    _bottomSep.backgroundColor = [UIColor g_colorWithHex:0xe8e8e8];
     [self addSubview:_bottomSep];
 }
 
@@ -157,12 +158,12 @@
         return _height;
     }
     
-    if (_title.length > 0) _height += 30;
-    if (_message.length > 0) _height += 40;
-    if (_buttons.count > 0) _height += 40 + 1.0 / [UIScreen mainScreen].scale;
-    if (_textFileds.count > 0) _height += _textFileds.count * 40;
+    if (_title.length > 0) _height += 60;
+    if (_message.length > 0) _height += 50;
+    if (_buttons.count > 0) _height += 50 + 1.0 / [UIScreen mainScreen].scale;
+    if (_textFileds.count > 0) _height += _textFileds.count * 60;
     
-    return _height;
+    return _height + 10;
 }
 
 #pragma mark - action
@@ -181,28 +182,28 @@
     }
     
     CGFloat heightOffset = 0;
-    _titleLabel.frame = (CGRect){8, heightOffset, self.g_width - 16, _titleLabel.g_height};
+    _titleLabel.frame = (CGRect){0, heightOffset, self.g_width, _titleLabel.g_height};
     heightOffset += _titleLabel.g_height;
-    _messageLabel.frame = (CGRect){8, heightOffset, self.g_width - 16, _messageLabel.g_height};
+    _messageLabel.frame = (CGRect){0, heightOffset, self.g_width, _messageLabel.g_height};
     heightOffset += _messageLabel.g_height;
     
     for (UITextField * textField in _textFileds) {
-        textField.frame = (CGRect){8, heightOffset + 5, self.g_width -16, 30};
-        heightOffset += 40;
+        textField.frame = (CGRect){20, heightOffset + 10, self.g_width -40, 40};
+        heightOffset += 60;
     }
     
-    _bottomSep.frame = (CGRect){0, heightOffset, self.g_width, 1.0 / [UIScreen mainScreen].scale};
-    heightOffset += _bottomSep.g_height;
+    _bottomSep.frame = (CGRect){0, heightOffset + 10, self.g_width, 1.0 / [UIScreen mainScreen].scale};
+    heightOffset += _bottomSep.g_height + 10;
 
     CGFloat buttonWidth = self.g_width * 1.0 / _buttons.count;
     for (UIButton * button in _buttons) {
         NSInteger index = [_buttons indexOfObject:button];
 
-        button.frame = (CGRect){buttonWidth * index, heightOffset, buttonWidth, 40};
+        button.frame = (CGRect){buttonWidth * index, heightOffset, buttonWidth, 50};
         
         if (index < _buttons.count - 1) {
             UIView * sep = _buttonSep[index];
-            sep.frame = (CGRect){buttonWidth * (index + 1), heightOffset, 1.0 / [UIScreen mainScreen].scale, 40};
+            sep.frame = (CGRect){buttonWidth * (index + 1), heightOffset, 1.0 / [UIScreen mainScreen].scale, 50};
         }
     }
 }
@@ -217,8 +218,8 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        _titleLabel.textColor = [UIColor darkGrayColor];
+        _titleLabel.font = [UIFont systemFontOfSize:15];
+        _titleLabel.textColor = [UIColor g_colorWithHex:0x333333];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_titleLabel];
     }
@@ -229,7 +230,7 @@
     if (!_messageLabel) {
         _messageLabel = [[UILabel alloc] init];
         _messageLabel.font = [UIFont systemFontOfSize:13];
-        _messageLabel.textColor = [UIColor darkGrayColor];
+        _messageLabel.textColor = [UIColor g_colorWithHex:0x666666];
         _messageLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_messageLabel];
     }
@@ -238,9 +239,9 @@
 
 - (void)layoutSubviews {
     CGFloat heightOffset = 0;
-    _titleLabel.frame = (CGRect){0, 0, self.g_width, 30};
+    _titleLabel.frame = (CGRect){0, 0, self.g_width, 60};
     heightOffset += _titleLabel.g_height;
-    _messageLabel.frame = (CGRect){0, heightOffset, self.g_width, 40};
+    _messageLabel.frame = (CGRect){0, heightOffset, self.g_width, 50};
 }
 @end
 
@@ -248,7 +249,9 @@
 @property (nonatomic, strong) UILabel * titleLabel;
 @end
 
-@implementation GeActionSheetCell
+@implementation GeActionSheetCell {
+    UIView * _lineView;
+}
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
@@ -256,12 +259,17 @@
         _titleLabel.textColor = [UIColor darkGrayColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_titleLabel];
+        
+        _lineView = [[UIView alloc] init];
+        _lineView.backgroundColor = [UIColor g_colorWithHex:0xe8e8e8];
+        [self.contentView addSubview:_lineView];
     }
     return _titleLabel;
 }
 
 - (void)layoutSubviews {
     _titleLabel.frame = self.bounds;
+    _lineView.frame = (CGRect){0, 1.0 / [UIScreen mainScreen].scale, self.g_width, 1 / [UIScreen mainScreen].scale};
 }
 @end
 
@@ -301,9 +309,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.showsVerticalScrollIndicator = NO;
-//        _tableView.separatorColor = [UIColor lightGrayColor];
-//        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//        _tableView.separatorInset = (UIEdgeInsets){0, 0, 0, 0};
+        _tableView.layoutMargins = (UIEdgeInsets){0, 0, 0, 0};
         [_tableView registerClass:[GeActionSheetCell class] forCellReuseIdentifier:@"GeActionSheetCell"];
         [_tableView registerClass:[GeActionSheetTitleCell class] forCellReuseIdentifier:@"GeActionSheetTitleCell"];
         [self addSubview:_tableView];
@@ -343,8 +349,8 @@
     if (_customView) return _customView.g_height;
     
     CGFloat _height = 0;
-    if (_title.length > 0) _height += 30;
-    if (_message.length > 0) _height += 40;
+    if (_title.length > 0) _height += 60;
+    if (_message.length > 0) _height += 50;
     if (_actions.count > 0) _height += _actions.count * 44;
     return _height;
 }
@@ -359,8 +365,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 == indexPath.row) {
         CGFloat _height = 0.000001;
-        if (_title.length > 0) _height += 30;
-        if (_message.length > 0) _height += 40;
+        if (_title.length > 0) _height += 60;
+        if (_message.length > 0) _height += 50;
         return _height;
     }
     else {
@@ -432,9 +438,13 @@
     _customView = customView;
     _style = preferredStyle;
     _contentView = [[UIView alloc] init];
+    _contentView.backgroundColor = [UIColor clearColor];
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    self.modalPresentationStyle = UIModalPresentationCustom;
     if (preferredStyle == UIAlertControllerStyleAlert) {
         _alertView = [[GeAlertView alloc] init];
+        _alertView.layer.cornerRadius = 8;
+        _alertView.clipsToBounds = YES;
     }
     else {
         _actionSheetView = [[GeActionSheetView alloc] init];
@@ -453,7 +463,9 @@
     _style = preferredStyle;
     _actions = @[].mutableCopy;
     _contentView = [[UIView alloc] init];
+    _contentView.backgroundColor = [UIColor clearColor];
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    self.modalPresentationStyle = UIModalPresentationCustom;
     if (preferredStyle == UIAlertControllerStyleAlert) {
         _textFields = @[].mutableCopy;
         _alertView = [[GeAlertView alloc] init];
@@ -480,7 +492,18 @@
 - (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *))configurationHandler {
     if (_style == UIAlertControllerStyleAlert) {
         UITextField * textFiled = [[UITextField alloc] init];
+        textFiled.borderStyle = UITextBorderStyleNone;
+        textFiled.layer.borderColor = [UIColor g_colorWithHex:0xe8e8e8].CGColor;
+        textFiled.layer.borderWidth = 1 / [UIScreen mainScreen].scale;
+        textFiled.layer.cornerRadius = 4;
+        
+        UIView * leftView = [[UIView alloc] initWithFrame:(CGRect){0, 0, 5, 10}];
+        leftView.backgroundColor = [UIColor clearColor];
+        textFiled.leftView = leftView;
+        textFiled.leftViewMode = UITextFieldViewModeAlways;
+        
         [_textFields addObject:textFiled];
+        [_alertView addTextFiled:textFiled];
         if (configurationHandler) configurationHandler(textFiled);
     }
 }
@@ -488,21 +511,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
-    _contentView.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.35];
     [self.view addSubview:_contentView];
     if (_style == UIAlertControllerStyleAlert) {
+        _alertView.backgroundColor = [UIColor whiteColor];
         [_contentView addSubview:_alertView];
         if (_customView) {
             [_alertView addCustomView:_customView];
         }
         else {
+            _alertView.backgroundColor = [UIColor whiteColor];
             [_alertView addTitle:_alertTitle];
             [_alertView addMessage:_message];
             [_alertView addActions:_actions];
+            _alertView.layer.cornerRadius = 4;
+            _alertView.layer.masksToBounds = YES;
+            _contentView.layer.shadowOffset = (CGSize){2, 2};
+            _contentView.layer.shadowColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.25].CGColor;
+            _contentView.layer.shadowOpacity = 0.35;
         }
     }
     else {
+        _contentView.backgroundColor = [UIColor whiteColor];
         [_contentView addSubview:_actionSheetView];
         if (_customView) {
             [_actionSheetView addCustomView:_customView];
@@ -515,8 +545,8 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     if (_style == UIAlertControllerStyleAlert) {
         CGFloat height = [_alertView caculateHeight];
@@ -529,11 +559,9 @@
         CGFloat height = [_actionSheetView caculateHeight];
         _contentView.frame = (CGRect){0, self.view.g_height - height, self.view.g_width, height};
         _actionSheetView.frame = _contentView.bounds;
-//        [_actionSheetView reloadData];
         [self p_showActionSheet];
     }
 }
-
 
 - (void)p_showAlert {
     
@@ -547,9 +575,9 @@
 
 - (void)p_showActionSheet {
     
-    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform.translate.y"];
-    animation.fromValue = @(-_contentView.g_height);
-    animation.toValue = @(0);
+    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0, _contentView.g_height, 0)];
+    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0, 0, 0)];
     animation.duration = 0.15;
     
     [_contentView.layer addAnimation:animation forKey:nil];

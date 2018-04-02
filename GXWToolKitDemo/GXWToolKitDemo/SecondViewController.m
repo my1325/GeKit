@@ -20,7 +20,7 @@
     self = [super init];
     if (!self) return nil;
 //    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    self.modalPresentationStyle = UIModalPresentationFormSheet;
+//    self.modalPresentationStyle = UIModalPresentationFormSheet;
     return self;
 }
 

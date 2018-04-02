@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "NSString+Ge.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import "G_ProtocolProxy.h"
 #import "G_CycleScrollView.h"
 #import "SecondViewController.h"
@@ -27,6 +28,25 @@ typedef struct TestStruct {
     unsigned int struct3;
     struct TestStruct0 struct4;
 }TestStruct;
+
+@interface UIAlertController (Ge)
+
+@end
+
+@implementation UIAlertController (Ge)
++ (void)load {
+    Method viewdidLoad = class_getInstanceMethod([self class], @selector(viewDidLoad));
+    Method g_viewDidLoad = class_getInstanceMethod([self class], @selector(g_viewDidLoad));
+    
+    method_exchangeImplementations(viewdidLoad, g_viewDidLoad);
+    
+}
+
+- (void)g_viewDidLoad {
+    [self g_viewDidLoad];
+}
+
+@end
 
 @protocol TestProtocol<NSObject>
 @property unsigned int unsignedInt;
@@ -193,23 +213,47 @@ typedef struct TestStruct {
 - (IBAction)touchButton:(id)sender {
     [self.textField resignFirstResponder];
     
-    GeAlertController * controller = [GeAlertController alertControllerWithTitle:[[NSAttributedString alloc] initWithString:@"title"] message:[[NSAttributedString alloc] initWithString:@"message"] preferredStyle:UIAlertControllerStyleActionSheet];
+    NSAttributedString * title = [[NSAttributedString alloc] initWithString:@"请输入用户名" attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName: [UIColor darkTextColor]}];
     
-    GeAction * action0 = [GeAction actionWithTitle:[[NSAttributedString alloc] initWithString:@"action0"] handler:^{
-        NSLog(@"touch action0");
-    }];
-    
-    GeAction * action1 = [GeAction actionWithTitle:[[NSAttributedString alloc] initWithString:@"action1"] handler:^{
+    GeAlertController * controller = [GeAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+
+    NSAttributedString * cancel = [[NSAttributedString alloc] initWithString:@"取消" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    NSAttributedString * sure = [[NSAttributedString alloc] initWithString:@"确定" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: [UIColor blueColor]}];
+    GeAction * action1 = [GeAction actionWithTitle:cancel handler:^{
         NSLog(@"touch action1");
     }];
-    
-    GeAction * action2 = [GeAction actionWithTitle:[[NSAttributedString alloc] initWithString:@"action2"] handler:^{
+
+    GeAction * action2 = [GeAction actionWithTitle:sure handler:^{
         NSLog(@"touch action2");
     }];
+
+    [controller addActions:@[action1, action2]];
     
-    [controller addActions:@[action0, action1, action2]];
-    
+    [controller addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"请输入用户名";        
+    }];
+//
+//    [controller addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+//        textField.placeholder = @"textFiled1";
+//        textField.borderStyle = UITextBorderStyleRoundedRect;
+//
+//    }];
+
     [self presentViewController:controller animated:YES completion:nil];
+//    UIAlertController * controller = [UIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIAlertAction * action0 = [UIAlertAction actionWithTitle:@"action0" style:UIAlertActionStyleDefault handler:nil];
+//    UIAlertAction * action1 = [UIAlertAction actionWithTitle:@"action1" style:UIAlertActionStyleDefault handler:nil];
+//    UIAlertAction * action2 = [UIAlertAction actionWithTitle:@"action2" style:UIAlertActionStyleDefault handler:nil];
+//    [controller addAction:action0];
+//    [controller addAction:action1];
+//    [controller addAction:action2];
+//
+//    [self presentViewController:controller animated:YES completion:nil];
+    
+    
+//    SecondViewController * controller = [[SecondViewController alloc] init];
+//    [self presentViewController:controller animated:YES completion:nil];
+//    [self presentViewController:controller animated:YES completion:nil];
 }
 
 
