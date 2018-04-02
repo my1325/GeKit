@@ -9,7 +9,9 @@
 #import "GeAlertController.h"
 #import "UIView+Ge.h"
 #import "UIColor+Ge.h"
+#import "UIResponder+Ge.h"
 
+static NSString * const Ge_AlertController_Dismiss_Event = @"Ge_AlertController_Dismiss_Event";
 @interface GeAction ()
 @property (nonatomic, strong) NSAttributedString * title;
 @property (nonatomic, strong) void(^handler)(void);
@@ -30,8 +32,6 @@
 }
 
 @end
-
-
 
 @interface GeAlertView : UIView
 
@@ -171,6 +171,7 @@
     NSInteger index = button.tag - 10000;
     GeAction * action = _actions[index];
     if (action.handler) action.handler();
+    [self g_routerActionNamed:Ge_AlertController_Dismiss_Event userInfo:nil];
 }
 
 #pragma mark - layout
@@ -360,6 +361,7 @@
     if (0 == indexPath.row) { return; }
     GeAction * action = _actions[indexPath.row - 1];
     if (action.handler) action.handler();
+    [self g_routerActionNamed:Ge_AlertController_Dismiss_Event userInfo:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -581,5 +583,36 @@
     animation.duration = 0.15;
     
     [_contentView.layer addAnimation:animation forKey:nil];
+}
+
+- (void)p_dismissAlert {
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        _contentView.transform = CGAffineTransformMakeScale(0.1, 0.1);
+        _contentView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+- (void)p_dismissActionSheet {
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        _contentView.transform = CGAffineTransformMakeTranslation(0, _contentView.g_height);
+        _contentView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+- (void)g_routerActionNamed:(NSString *)actioName userInfo:(id)userInfo {
+    if ([actioName isEqualToString:Ge_AlertController_Dismiss_Event]) {
+        if (_style == UIAlertControllerStyleActionSheet) {
+            [self p_dismissActionSheet];
+        }
+        else {
+            [self p_dismissAlert];
+        }
+    }
 }
 @end

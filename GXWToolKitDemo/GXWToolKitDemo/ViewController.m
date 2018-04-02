@@ -215,7 +215,7 @@ typedef struct TestStruct {
     
     NSAttributedString * title = [[NSAttributedString alloc] initWithString:@"请输入用户名" attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName: [UIColor darkTextColor]}];
     
-    GeAlertController * controller = [GeAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    GeAlertController * controller = [GeAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
 
     NSAttributedString * cancel = [[NSAttributedString alloc] initWithString:@"取消" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     NSAttributedString * sure = [[NSAttributedString alloc] initWithString:@"确定" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName: [UIColor blueColor]}];
