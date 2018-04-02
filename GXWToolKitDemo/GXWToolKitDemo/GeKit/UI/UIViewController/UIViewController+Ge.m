@@ -8,6 +8,7 @@
 
 #import "UIViewController+Ge.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <objc/runtime.h>
 
 @interface GeImagePickerDelegate: NSObject<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -20,6 +21,8 @@
 - (instancetype)initWithEditing: (BOOL)editing completion: (void(^)(UIImage *))completion;
 
 - (instancetype)initWithVideoCompletion: (void(^)(NSURL *url))completion;
+
+- (void)setPickerController: (UIImagePickerController *)pickerController;
 @end
 
 @implementation GeImagePickerDelegate
@@ -57,6 +60,11 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)setPickerController:(UIImagePickerController *)pickerController {
+    pickerController.delegate = self;
+    objc_setAssociatedObject(pickerController, _cmd, self, OBJC_ASSOCIATION_RETAIN);
+}
 @end
 
 @implementation UIViewController (Ge)
@@ -92,8 +100,8 @@
     pickerController.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
     
     GeImagePickerDelegate * delegate = [[GeImagePickerDelegate alloc] initWithEditing:editable completion:completion];
-    pickerController.delegate = delegate;
-    
+    [delegate setPickerController:pickerController];
+
     [self presentViewController:pickerController animated:YES completion:nil];
 }
 
@@ -104,7 +112,7 @@
     pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     GeImagePickerDelegate * delegate = [[GeImagePickerDelegate alloc] initWithEditing:editable completion:completion];
-    pickerController.delegate = delegate;
+    [delegate setPickerController:pickerController];
     
     [self presentViewController:pickerController animated:YES completion:nil];
 }
@@ -116,7 +124,7 @@
     pickerController.mediaTypes = @[(NSString *)kUTTypeVideo];
     
     GeImagePickerDelegate * delegate = [[GeImagePickerDelegate alloc] initWithVideoCompletion:completion];
-    pickerController.delegate = delegate;
+    [delegate setPickerController:pickerController];
     [self presentViewController:pickerController animated:YES completion:nil];
 }
 @end
