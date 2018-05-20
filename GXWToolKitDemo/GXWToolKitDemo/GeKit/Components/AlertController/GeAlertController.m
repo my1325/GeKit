@@ -170,8 +170,10 @@ static NSString * const Ge_AlertController_Dismiss_Event = @"Ge_AlertController_
 - (void)p_handleButtonTouch: (UIButton *)button {
     NSInteger index = button.tag - 10000;
     GeAction * action = _actions[index];
-    if (action.handler) action.handler();
     [self g_routerActionNamed:Ge_AlertController_Dismiss_Event userInfo:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (action.handler) action.handler();
+    });
 }
 
 #pragma mark - layout
@@ -360,8 +362,10 @@ static NSString * const Ge_AlertController_Dismiss_Event = @"Ge_AlertController_
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 == indexPath.row) { return; }
     GeAction * action = _actions[indexPath.row - 1];
-    if (action.handler) action.handler();
     [self g_routerActionNamed:Ge_AlertController_Dismiss_Event userInfo:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (action.handler) action.handler();
+    });
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -405,6 +409,9 @@ static NSString * const Ge_AlertController_Dismiss_Event = @"Ge_AlertController_
 /// total
 @property (nonatomic, assign) UIAlertControllerStyle style;
 @property (nonatomic, strong) UIView * contentView;
+
+/// 空白消失的button
+@property (nonatomic, strong) UIButton * dismissButton;
 /// 普通样式
 @property (nonatomic, strong) NSAttributedString * alertTitle;
 @property (nonatomic, strong) NSAttributedString * message;
@@ -513,6 +520,10 @@ static NSString * const Ge_AlertController_Dismiss_Event = @"Ge_AlertController_
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_dismissButton addTarget:self action:@selector(p_touchDismissButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_dismissButton];
+    
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.35];
     [self.view addSubview:_contentView];
     if (_style == UIAlertControllerStyleAlert) {
@@ -552,12 +563,14 @@ static NSString * const Ge_AlertController_Dismiss_Event = @"Ge_AlertController_
     
     if (_style == UIAlertControllerStyleAlert) {
         CGFloat height = [_alertView caculateHeight];
+        _dismissButton.frame = self.view.bounds;
         _contentView.bounds = (CGRect){0, 0, self.view.g_width - 30, height};
         _contentView.center = (CGPoint){CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds)};
         _alertView.frame = _contentView.bounds;
         [self p_showAlert];
     }
     else {
+        _dismissButton.frame = self.view.bounds;
         CGFloat height = [_actionSheetView caculateHeight];
         _contentView.frame = (CGRect){0, self.view.g_height - height, self.view.g_width, height};
         _actionSheetView.frame = _contentView.bounds;
@@ -603,6 +616,15 @@ static NSString * const Ge_AlertController_Dismiss_Event = @"Ge_AlertController_
     } completion:^(BOOL finished) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
+}
+
+- (void)p_touchDismissButton {
+    if (_style == UIAlertControllerStyleActionSheet) {
+        [self p_dismissActionSheet];
+    }
+    else {
+        [self p_dismissAlert];
+    }
 }
 
 - (void)g_routerActionNamed:(NSString *)actioName userInfo:(id)userInfo {

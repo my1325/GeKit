@@ -144,7 +144,6 @@
 		0F34B315200C57C6005FD49F /* GeKit */ = {
 			isa = PBXGroup;
 			children = (
-				0F44700A201EEC6A00388252 /* Custome */,
 				0F447008201EE9ED00388252 /* Components */,
 				0F34B328200C7158005FD49F /* Foudation */,
 				0F34B327200C714E005FD49F /* UI */,
@@ -404,13 +403,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		0F44700A201EEC6A00388252 /* Custome */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Custome;
-			sourceTree = "<group>";
-		};
 		0F5AC13C2029A4210096A320 /* UITextFiled */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,7 +499,7 @@
 				TargetAttributes = {
 					0F3CA0C31F0347DB00E79729 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 5DQGACEYAA;
+						DevelopmentTeam = K8EC7TWSSW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -756,7 +748,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DQGACEYAA;
+				DEVELOPMENT_TEAM = K8EC7TWSSW;
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -774,7 +766,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DQGACEYAA;
+				DEVELOPMENT_TEAM = K8EC7TWSSW;
 				INFOPLIST_FILE = GXWToolKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

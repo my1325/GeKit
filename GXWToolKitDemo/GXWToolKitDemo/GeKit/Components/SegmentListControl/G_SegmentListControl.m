@@ -221,6 +221,10 @@
     _collectionView.dataSource = self;
     _collectionView.frame = self.bounds;
     _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionView.showsVerticalScrollIndicator = NO;
+    _collectionView.showsHorizontalScrollIndicator = NO;
+    _collectionView.bounces = NO;
+    _collectionView.bouncesZoom = NO;
     _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_collectionView registerClass:[GeSegmentListControlCell class] forCellWithReuseIdentifier:@"GeSegmentListControlCell"];
     

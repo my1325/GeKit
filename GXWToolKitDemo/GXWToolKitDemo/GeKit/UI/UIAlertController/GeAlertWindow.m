@@ -29,6 +29,8 @@
     
     self.windowLevel = UIWindowLevelAlert;
     self.rootViewController = [[UIViewController alloc] init];
+    self.backgroundColor = [UIColor clearColor];
+    self.rootViewController.view.backgroundColor = [UIColor clearColor];
     return self;
 }
 
