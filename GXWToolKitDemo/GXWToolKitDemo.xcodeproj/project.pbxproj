@@ -144,6 +144,7 @@
 		0F34B315200C57C6005FD49F /* GeKit */ = {
 			isa = PBXGroup;
 			children = (
+				0F97D2EA241A3B9700FEB933 /* c */,
 				0F447008201EE9ED00388252 /* Components */,
 				0F34B328200C7158005FD49F /* Foudation */,
 				0F34B327200C714E005FD49F /* UI */,
@@ -448,6 +449,13 @@
 			path = QRCodeView;
 			sourceTree = "<group>";
 		};
+		0F97D2EA241A3B9700FEB933 /* c */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = c;
+			sourceTree = "<group>";
+		};
 		206CA7C95ACCE40E47B51EBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +517,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
